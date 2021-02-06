@@ -1,8 +1,8 @@
 ---
 layout: list
 title: Recommend System
-slug: artwork
-menu: false
+slug: recommender system
+menu: true
 submenu: false
 order: 1
 description: >
