@@ -3,7 +3,7 @@ layout: list
 title: Recommendation System
 slug: recommender system
 menu: true
-submenu: false
+submenu: true
 order: 1
 description: >
   그래프 Embedding과 머신러닝 및 딥러닝을 이용한 추천 시스템  
