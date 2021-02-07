@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: Recommendation system
-slug: recommendation system
+title: Graph
+slug: graph
 category: Recommendation System
 menu: true
 order: 1
