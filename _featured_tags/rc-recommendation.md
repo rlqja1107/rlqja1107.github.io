@@ -2,7 +2,7 @@
 layout: tag-blog
 title: Recommendation system
 slug: recommendation system
-category: Recommendation System
+category: recommendation system
 menu: true
 order: 1
 ---
