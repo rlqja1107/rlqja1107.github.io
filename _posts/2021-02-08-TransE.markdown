@@ -40,7 +40,7 @@ TransE는 **Heterogenous** Network에 적용이 가능하다. 즉, 타입이 다
 
 다음과 같은 식은 *Objective Function*을 의미한다.  
 
-$\mathit{d(h+l,t)}$
+$\mathit{d(h+l,t)}$  
 
 이는 Dissimilarity measure을 나타내고, $L_{1}/L_{2}$ 가능하다.    
 $$\hat{h},l,\hat{t}\in S^{+}$$ 
