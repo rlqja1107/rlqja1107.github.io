@@ -36,14 +36,14 @@ TransE는 **Heterogenous** Network에 적용이 가능하다. 즉, 타입이 다
 간단하고 단순한 Model로 Regularization을 넣을 수가 없어 Overfitting의 문제가 생길 수 있다. 그리고 Non-convex로 Underfitting의 문제가 생긴다.  
 위와 같은 TransE의 특성을 알고 지식 그래프 임베딩에 사용할 수 있으면 좋다. 그리고 위에서 **지식**그래프에서 언급했듯이 head+relation $\approx$ tail로 근접시키는 것이 핵심이다. Relation을 임베딩 공간으로 **Translation**되는 것도 TransE의 한 특징이다.  
 ### Model Framework  
-* $\mathit{L = \sum_{(h,l,t)\in S}\sum_{(\hat{h},l,\hat{t})\in S^{`})} [r +d(h+l,t)-d(h^{`}+l,t^{`})]_{`}}$    
+* $\mathit{L = \sum_{(h,l,t)\in S}\sum_{(\hat{h},l,\hat{t})\in S^{+})} [r +d(h+l,t)-d(h^{+}+l,t^{+})]_{+}}$    
 
 다음과 같은 식은 Objective Function을 의미한다.  
 
 $$\mathit{d(h+l,t)}$$
 
  : Dissimilarity measure - $L_{1}/L_{2}$ 가능  
- 여기서 $\hat{h},l,\hat{t}\in S^{`}$ 은 **Corrupted Triplet**을 의미하여 $S^{`}_{h,l,t} = \left \{ (h^{`}, l, t)|h^{`}\in E \cup  (h,l,t^{`})|t^{`}\in E \right \}$ 를 의미한다. 여기서 해석한 바로는 Head와 Tail을 제외한 나머지 Entity를 의미한다고 해석했다.  
+ 여기서 $\hat{h},l,\hat{t}\in S^{+}$ 은 **Corrupted Triplet**을 의미하여 $S^{+}_{h,l,t} = \left \{ (h^{+}, l, t)|h^{+}\in E \cup  (h,l,t^{+})|t^{+}\in E \right \}$ 를 의미한다. 여기서 해석한 바로는 Head와 Tail을 제외한 나머지 Entity를 의미한다고 해석했다.  
 Train시킬 때 Mini-batch로 뽑게 되는데 하나의 Sample triple당 **Corrupted Triple**을 하나씩 뽑아서 **Negative Sampling**을 진행한다. 마지막으로 Embedding시킬 때, Entity를 Normalize하기 위해 전체의 Norm을 1로 맞췄다.  
 Negative Samping의 자세한 사항은 LINE 발표자료에서 자세히(?) 다루었다.  
 * 아래의 그림은 이후 볼 때 알고리즘 이해를 위해 넣었다.  
