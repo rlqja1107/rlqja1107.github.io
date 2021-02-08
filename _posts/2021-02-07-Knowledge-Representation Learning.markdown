@@ -1,12 +1,10 @@
 ---
 layout: post
-mathjax: true
 title: "[논문]Knowledge Representation Learning with Entities, Attributes and Relations" 
 subtitle: "Relation을 Relational과 Attribute로 나누어 지식 그래프 임베딩"  
 categories: recommendation
 tags: graph
 comments: true
-
 ---
 
 
