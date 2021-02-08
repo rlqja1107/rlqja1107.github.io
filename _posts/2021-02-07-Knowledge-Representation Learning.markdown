@@ -25,7 +25,12 @@ Yankai Lin, Zhiyuan Liu, Maosong Sun
 > Relation을 Attribute와 Relational로 구분  
 
 
-TransE, TransR, TransH 등은 지식 그래프 임베딩의 한 방법으로 Entity와 Entity 간에 Relation을 기준으로 Graph에 Embedding시킨다. 물론 TransE처럼 Entity간에 Relation을 나타내는데 Entity의 Type이 상관은 없지만, **Attribute**를 나타내는데 한계가 존재한다. 즉, Attribute Type이라고 한다면 다음과 같다. (e,a,v)로 표현된다. e를 여기서 사람이라고 한다면 a는 Gender라고 한다면 v는 Male이 된다. 즉, '김기범(e)의 Gender(a)는 Male(v)이다' 라는 관계가 성립된다. 여기서 Male은 하나의 Entity라고 보지 않고 하나의 Abstract 대상이라고 생각하면 쉽다.  
+TransE, TransR, TransH 등은 지식 그래프 임베딩의 한 방법으로 Entity와 Entity 간에 Relation을 기준으로 Graph에 Embedding시킨다. 물론 TransE처럼 Entity간에 Relation을 나타내는데 Entity의 Type이 상관은 없지만, **Attribute**를 나타내는데 한계가 존재한다. 
+> Attribute를 여기서는 Entity를 표현하는 하나의 특징이라고 이해하면 편하다. 즉, 김기범 작성자의 성별도 하나의 Attribute이고, 내가 사는 지역도 Attribute로 표현이 가능하다. Attribute의 경우는 one-to-many인 경우가 많은데, one-to-one과 one-to-many와의 차이는 아래에서 예를 들었다.  
+
+
+
+즉, Attribute Type이라고 한다면 다음과 같다. (e,a,v)로 표현된다. e를 여기서 사람이라고 한다면 a는 Gender라고 한다면 v는 Male이 된다. 즉, '김기범(e)의 Gender(a)는 Male(v)이다' 라는 관계가 성립된다. 여기서 Male은 하나의 Entity라고 보지 않고 하나의 Abstract 대상이라고 생각하면 쉽다.  
 ## 논문의 핵심 Point    
 ![image](https://user-images.githubusercontent.com/55014424/107148773-611a6f80-6998-11eb-8393-d74de3d8d23a.png)  
 위와 그림과 같이 보면 이해가 더 쉽다. 노란 박스와 초록 박스는 각각의 Attribute를 나타낸다. 그리고 주황색 원은 각 Entity를 나타내고 선은 Entity간의 Relation을 나타낸다. 즉, '김기범의 친구는 OOO이다'가 선으로 표현된다.  
