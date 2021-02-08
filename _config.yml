@@ -108,7 +108,8 @@ exclude:
   - package-lock.json
   - Gemfile
   - Gemfile.lock
-
+  
+markdown: kramdown
 kramdown:
   footnote_backlink: '&#x21a9;&#xfe0e;'
   math_engine:       mathjax
