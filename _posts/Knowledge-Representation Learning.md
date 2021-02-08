@@ -2,8 +2,10 @@
 layout: post
 title: Knowledge Representation Learning with Entities, Attributes and Relations 
 subtitle: Relation을 Relational과 Attribute로 나누어 지식 그래프 임베딩  
-categories: recommendation system
-tags: graph
+categories: 
+    - recommendation system
+tags: 
+    - graph
 comments: true
 ---  
 
