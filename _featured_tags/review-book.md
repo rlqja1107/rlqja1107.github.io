@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
 title: Book
-slug: book
-category: review
+slug: review
+category: shopping
 menu: false
 order: 1
 ---
