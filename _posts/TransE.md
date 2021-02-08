@@ -9,18 +9,9 @@ comments: true
 
 
 
-
-
-
-
-
-
-
-
-
-# TransE
-## 읽은 날짜  
-2021-02-08  
+# TransE   
+## 읽은 날짜   
+2021-02-08   
 
 ## 논문 목적  
 지식 그래프의 한 Approach로 Entity와 relation을 하나의 Space에 low-dimensional로 Embedding하기 위한 목적을 갖는다. TransE나 TransR 모두 지식 그래프 임베딩의 기초로서 작용한다. 다른 Network Embedding의 방법으로 Structure와 Connection을 유지하며 Graph에 Embedding시킨다. 여기서도 Connection 형태를 그래프에 임베딩하기 위해 Triplet형태의 Connection을 유지하며 이를 Graph에 적용시킨다. 그래프 임베딩 방법 중 하나인 지식 그래프 임베딩 방법을 익힌다.  
