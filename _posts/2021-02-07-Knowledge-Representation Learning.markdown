@@ -18,6 +18,8 @@ Yankai Lin, Zhiyuan Liu, Maosong Sun
 
 ## 읽은 날짜   
 > 2021-02-07   
+
+
 ## 논문의 목적  
 > Relation을 Attribute와 Relational로 구분  
 
@@ -34,6 +36,8 @@ $\mathrm{P(S,Y)|X)=P(S|X)P(Y|X)=\prod_{(h,r,t)\in S}P((h,r,t)|X)\prod_{e,a,v\in 
 TransE에서는 1:1 즉, one-to-one의 Relation만 표현이 가능하다. one-to-one, one-to-many를 해석하는데 어려움이 있었지만, 예를 보면 쉽게 이해가 가능하다.  
 > one-to-one : 대한민국(head) 수도(relation)는 서울(tail)이다. 라고 하면, 하나의 relation으로 하나의 tail이 결정된다.  
 > one-to-many : relation을 gender라고 하면, 많은 사람(head)들은 남성(tail)이다. 라고 하면 head가 n이 되어 1:n의 관계를 형성한다.  
+
+
 
 TransE에서의 one-to-many relation의 한계를 **Attribute**를 이용하면 표현이 가능하다.   
 * 참고  
