@@ -9,7 +9,7 @@ comments: true
 
 
 
-## Entity, Relation, Tail   
+## Translating Embeddings for Modeling Multi-relational Data     
 
 
 
