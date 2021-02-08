@@ -1,7 +1,7 @@
 ---
 layout: post
-title: TransE 
-subtitle: 지식 그래프로 Entity와 Relation을 임베딩하는 일반적인 방법
+title: "[논문]TransE - 지식그래프" 
+subtitle: "지식 그래프로 Entity와 Relation을 임베딩하는 일반적인 방법"
 categories: recommendation system
 tags: graph
 comments: true
@@ -24,4 +24,7 @@ TransE는 Hetergenous Network에 적용이 가능하다. 즉, 타입이 다른 E
 여러 Type의 개체를 한 공간에 넣을 수 있다. 그리고 다른 Type간의 Relation을 Triple 형태로 정의할 수 있다.  
 * TransE의 단점  
 간단하고 단순한 Model로 Regularization을 넣을 수가 없어 Overfitting의 문제가 생길 수 있다. 그리고 Non-convex로 Underfitting의 문제가 생긴다.  
-위와 같은 TransE의 특성을 알고 지식 그래프 임베딩에 사용할 수 있으면 좋다. 그리고 위에서 **지식**그래프에서 언급했듯이 head+
+위와 같은 TransE의 특성을 알고 지식 그래프 임베딩에 사용할 수 있으면 좋다. 그리고 위에서 **지식**그래프에서 언급했듯이 head+relation \approx tail로 근접시키는 것이 핵심이다. Relation을 임베딩 공간으로 **Translation**되는 것도 TransE의 한 특징이다.  
+### Model Framework  
+* \mathit{L = \sum_{(h,l,t)\in S}\sum_{(\hat{h},l,\hat{t})\in S^{`})} [r +d(h+l,t)-d(h^{`}+l,t^{`})]_{+}}   
+여기서 \mathit{d(h+l,t)} 은 dissimilarity measure로 거리를 나타낸다. 물론 \L_{1}/L_{2} 를 이용해도 된다. 
