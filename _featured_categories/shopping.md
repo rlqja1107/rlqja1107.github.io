@@ -4,7 +4,7 @@ title: Shopping
 slug: shopping
 menu: true
 submenu: false
-order: 6
+order: 2
 description: >
   쇼핑목록을 공유합니다.
 ---

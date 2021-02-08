@@ -3,6 +3,6 @@ layout: tag-blog
 title: Graph
 slug: graph
 category: recommendation system
-menu: true
-order: 2
+menu: false
+order: 1
 ---

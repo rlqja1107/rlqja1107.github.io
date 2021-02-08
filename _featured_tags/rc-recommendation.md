@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
 title: Recommendation system
-slug: recommendation system
+slug: recommendation
 category: recommendation system
-menu: true
-order: 1
+menu: false
+order: 2
 ---
