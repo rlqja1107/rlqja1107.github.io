@@ -1,10 +1,12 @@
 ---
 layout: post
+mathjax: true
 title: "[논문]Knowledge Representation Learning with Entities, Attributes and Relations" 
 subtitle: "Relation을 Relational과 Attribute로 나누어 지식 그래프 임베딩"  
 categories: recommendation
 tags: graph
 comments: true
+
 ---
 
 
@@ -30,7 +32,7 @@ TransE, TransR, TransH 등은 지식 그래프 임베딩의 한 방법으로 Ent
 위와 그림과 같이 보면 이해가 더 쉽다. 노란 박스와 초록 박스는 각각의 Attribute를 나타낸다. 그리고 주황색 원은 각 Entity를 나타내고 선은 Entity간의 Relation을 나타낸다. 즉, '김기범의 친구는 OOO이다'가 선으로 표현된다.  
 왼쪽의 그림은 일반 TransE, TransR처럼 모든 Entity와 Attribute를 하나의 Graph로 표현한 것이라면, 오른쪽 그림은 Attribute 공간을 따로 만들어 Entity 공간과의 관계로 표시된다. 즉, Attribute 공간과 Entity 공간을 따로 생각한다는 것이다. 이후에 다시 설명하지만, Entity와 Attribute간의 관계 유지를 위해 Entity 공간을 Single Layer를 통해 Attribute 공간으로 보낸다.   
 Embedding **(X)**라고 했을 때, 우리의 Objective Function은 다음과 같다.    
-$$\mathrm{P(S,Y)|X)=P(S|X)P(Y|X)=\prod_{(h,r,t)\in S}P((h,r,t)|X)\prod_{e,a,v\in Y}P((e,a,v)|X)}, S\subseteq E \times R \times  E, Y\subseteq E \times A \times V$$       
+$$\mathrm{P(S,Y)|X)=P(S|X)P(Y|X)=\prod_{(h,r,t)\in S}P((h,r,t)|X)\prod_{e,a,v\in Y}P((e,a,v)|X)}, S\subseteq E \times R \times  E, Y\subseteq E \times A \times V$$  
 여기서 relational triple과 attributional triple은 서로 독립임을 가정한다. 즉 해석하면, Embedding이 주어졌을 때, 우리는 S, Entity와 Entity 간의 Relation,과 Y, Entity와 Attribute간의 관계의 확률을 최대화시키는 방향으로 진행한다.  
 * 한 가지를 빠트려서 추가  
 TransE에서는 1:1 즉, one-to-one의 Relation만 표현이 가능하다. one-to-one, one-to-many를 해석하는데 어려움이 있었지만, 예를 보면 쉽게 이해가 가능하다.  
