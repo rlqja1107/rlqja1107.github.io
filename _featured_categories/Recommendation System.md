@@ -1,7 +1,7 @@
 ---
 layout: list
 title: Recommendation System
-slug: recommendation system
+slug: recommendation
 menu: true
 submenu: true
 order: 1
