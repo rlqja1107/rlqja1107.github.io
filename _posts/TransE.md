@@ -12,7 +12,16 @@ comments: true
 2021-02-08  
 
 ## 논문 목적  
-지식 그래프의 한 Approach로 Entity와 relation을 하나의 Space에 Embedding하기 위한 목적을 갖는다. TransE나 TransR 모두 지식 그래프 임베딩의 기초로서 작용한다. 다른 Network Embedding의 방법으로 Structure와 Connection을 유지하며 Graph에 Embedding시킨다. 여기서도 Connection 형태를 그래프에 임베딩하기 위해 Triplet형태의 Connection을 유지하며 이를 Graph에 적용시킨다. 그래프 임베딩 방법 중 하나인 지식 그래프 임베딩 방법을 익힌다.  
+지식 그래프의 한 Approach로 Entity와 relation을 하나의 Space에 low-dimensional로 Embedding하기 위한 목적을 갖는다. TransE나 TransR 모두 지식 그래프 임베딩의 기초로서 작용한다. 다른 Network Embedding의 방법으로 Structure와 Connection을 유지하며 Graph에 Embedding시킨다. 여기서도 Connection 형태를 그래프에 임베딩하기 위해 Triplet형태의 Connection을 유지하며 이를 Graph에 적용시킨다. 그래프 임베딩 방법 중 하나인 지식 그래프 임베딩 방법을 익힌다.  
 ## 논문의 핵심 Point  
 ### 지식그래프  
-지식 그래프는 Triple 형태로 관계를 유지한다. Triple은 주어, 서술어, 목적어 형태로 이루어져있다. 주어, 목적어는 Entity로 현실에서 예를 들면 사람, 동물의 한 개체를 나타낸다. 여기서 예를 들어, 옆에 사진에 나와있는 웰시코기를 들어보겠다. 웰시코기(주어)는 강아지(목적어)의 한 종류(서술어)이다 라고 표현이 된다. 이제 주어는 'Head(h)'라고 하고, 목적어는 'Tail(t)'이고 서술어는 'Relation(l)'라고도 표시한다. 기존에 알고 있던 네트워크를 그래프에 임베딩 할 때는 GCN, LINE과 같이 자신과 연결되어 있는 Entity는 누구인지, 즉 Neightborhood가 누구인지와 같은 outdegree의 개념으로 임베딩
+지식 그래프는 Triple 형태로 관계를 유지한다. Triple은 주어, 서술어, 목적어 형태로 이루어져있다. 주어, 목적어는 Entity로 현실에서 예를 들면 사람, 동물의 한 개체를 나타낸다. 여기서 예를 들어, 옆에 사진에 나와있는 웰시코기를 들어보겠다. 웰시코기(주어)는 강아지(목적어)의 한 종류(서술어)이다 라고 표현이 된다. 이제 주어는 'Head(h)'라고 하고, 목적어는 'Tail(t)'이고 서술어는 'Relation(l)'라고도 표시한다. 기존에 알고 있던 네트워크를 그래프에 임베딩 할 때는 GCN, LINE과 같이 자신과 연결되어 있는 Entity는 누구인지, 즉 Neightborhood가 누구인지와 같은 outdegree의 개념으로 임베딩하는 것으로 기억했다. 하지만 여기서는 신기하게 나(head)의 애완견(relation)은 강아지(tail)이다 의 형식으로 신기하게 training시킨다. 지식 그래프 중 TransE를 읽으며 기본적인 지식을 쌓고자 한다. 아래의 그림으로 head, tail, relation의 개념이 쉽게 이해될 것이다.  
+![image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJwseldzGysETyR5ZVBq4kNekt37vJA9pWWQ&usqp=CAU)  
+h는 head, r은 relation, t는 tail로 간단하게 언급하면 head+relation을 tail에 근접시킨다고 이해하면 된다.   
+### TransE   
+TransE는 Hetergenous Network에 적용이 가능하다. 즉, 타입이 다른 Entity가 한 Graph에 표현이 가능하다는 것이다. 예를 들면, 카이스트, 한양대와 같은 학교의 Type의 Entity와 학생1, 학생2, 학생3과 같은 사람 Type의 Entity가 같은 공간에 임베딩이 될 수 있다는 것이다. 여기서 중요하게 생각해야 될 것은 Entity다. Entity는 하나의 개체로 현실에 존재하는 하나의 객체로 봐야한다. **Knowledge Representational Learning With Entities, Attributes and Relations**의 논문에서는 Entitiy와 Attribute를 다르게 정의한다. Attribute는 하나의 추상적 대상으로 성별, 키와 같이 Entity를 설명하기 위한 개념이고, Entity는 현실에 존재하는 객체로 사람, 학교와 같은 개념이다.  
+* TransE의 장점  
+여러 Type의 개체를 한 공간에 넣을 수 있다. 그리고 다른 Type간의 Relation을 Triple 형태로 정의할 수 있다.  
+* TransE의 단점  
+간단하고 단순한 Model로 Regularization을 넣을 수가 없어 Overfitting의 문제가 생길 수 있다. 그리고 Non-convex로 Underfitting의 문제가 생긴다.  
+위와 같은 TransE의 특성을 알고 지식 그래프 임베딩에 사용할 수 있으면 좋다. 그리고 위에서 **지식**그래프에서 언급했듯이 head+
