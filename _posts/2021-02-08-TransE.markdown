@@ -9,7 +9,7 @@ comments: true
 
 
 
-# TransE   
+## Entity, Relation, Tail   
 
 
 
