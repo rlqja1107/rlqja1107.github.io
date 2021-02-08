@@ -36,7 +36,8 @@ TransE, TransR, TransH 등은 지식 그래프 임베딩의 한 방법으로 Ent
 위와 그림과 같이 보면 이해가 더 쉽다. 노란 박스와 초록 박스는 각각의 **Attribute**를 나타낸다. 그리고 주황색 원은 각 **Entity**를 나타내고 선은 Entity간의 Relation을 나타낸다. 즉, '김기범의 친구는 OOO이다'가 선으로 표현된다.  
 왼쪽의 그림은 일반 TransE, TransR처럼 모든 Entity와 Attribute를 하나의 Graph로 표현한 것이라면, 오른쪽 그림은 Attribute 공간을 따로 만들어 Entity 공간과의 관계로 표시된다. **즉, Attribute 공간과 Entity 공간을 따로 생각한다는 것이다**. 이후에 다시 설명하지만, Entity와 Attribute간의 관계 유지를 위해 Entity 공간을 Single Layer를 통해 Attribute 공간으로 보낸다.   
 Embedding (**X**)라고 했을 때, 우리의 Objective Function은 다음과 같다.    
-$$\mathrm{P(S,Y)|X)=P(S|X)P(Y|X)=\prod_{(h,r,t)\in S}P((h,r,t)|X)\prod_{e,a,v\in Y}P((e,a,v)|X)}, S\subseteq E \times R \times  E, Y\subseteq E \times A \times V$$  
+$$\mathrm{P(S,Y)|X)=P(S|X)P(Y|X)=\prod_{(h,r,t)\in S}P((h,r,t)|X)\prod_{e,a,v\in Y}P((e,a,v)|X)}$$  
+$$S\subseteq E \times R \times  E, Y\subseteq E \times A \times V$$   
 
 
 
@@ -63,17 +64,17 @@ $$\mathit{P((h)|r,t,X)} = \mathit{P((h)|r,t,X) = \frac{e^{g(h,r,t)}}{\sum_{\hat{
 여기서, $\mathit{g(h,r,t) = - \left \| h+r-t \right \|}_{L_{1}/L_{2}}+b_{1}$ 로 정의된다.   
 ### Attributional Triple Encoder(ATE)   
 ATE는 Entity와 Attribute 사이의 Relation을 유지시켜 임베딩한다. 여기서는 (e,a,v)의 triple이 존재한다고 한다면, 다음의 식을 통해 관계를 유지시킨다.  
-$$\mathit{P(v|e,a,X)= \frac{e^{h(e,a,v)}}{\sum_{\hat{v}\in V_{a}}e^{h(e,a,\hat{v})}}}$$    
+$$\mathit{P(v\mid e,a,X)= \frac{e^{h(e,a,v)}}{\sum_{\hat{v}\in V_{a}}e^{h(e,a,\hat{v})}}}$$    
 여기서 h()는 위에서 잠깐 언급했던 Single Layer의 Transform을 의미한다. 즉, Entity 임베딩을 Attribute 임베딩으로 바꿔주는 함수다. 여기서 내가 이해한 바로는 Entity 공간을 Attribute 공간으로 바꾸고 그 둘 사이의 거리를 최소화하는 방향으로 진행되는 것으로 이해했다. transform 함수는 다음과 같다.  
 $$\mathit{h(e,a,v) = - \left \| f(eW_{a}+b_{a})-V_{av} \right \|_{L_{1}/L_{2}} +b_{2}}$$     
 여기서 $\mathit{V_{av}}$는 attribute value v의 임베딩을 의미하고 $b_{2}$는 bias 상수를 의미한다.  
 ### Attribute 간의 상관성  
 우리는 Attribute 간에 강한 상관성이 존재함을 알 수 있다. 예를 들면, 한국에 사는 사람들은 한국어를 사용하고, 원 단위의 돈을 사용한다 의 강한 상관성을 나타낸다. 여기에서의 핵심은 Attribute사이의 상관성을 고려한다.  
-$$\mathit{Y(e)={(e,\hat{a},\hat{v})\in Y}}$$
+$$\mathit{Y(e)=\left \{ (e,\hat{a},\hat{v})\in Y \right \}}$$   
 우리는 다음 위의 새로운 Dention을 세운다. 이는 (e,a,v)를 제외한 나머지 Attribute를 의미한다. 여기서는 Y(e)가 주어졌을 때, 즉, (e,a,v)를 제외한 다른 Attribute를 통해 (e,a,v)를 예측한다는 의미로 받아들였다. 식은 다음과 같다.  
-$$\mathit{P((e,a,v)|Y(e))= \frac{e^{z(e,a,v,Y(e))}}{\sum_{\hat{v}\in Y(e)}P((a,v)|(\hat{a},\hat{v},Y(e)))}}$$      
+$$\mathit{P((e,a,v)\mid Y(e))= \frac{e^{z(e,a,v,Y(e))}}{\sum_{\hat{v}\in V_{a}}e^{z(e,a,\hat{v},Y(e))}}}$$      
 $$\mathit{z(e,a,v,Y(e))\propto \sum_{(e,\hat{a},\hat{v}\in Y(e))}P((a,v)|(\hat{a},\hat{v}))(A_{a}\cdot  A_{\hat{a}})}$$       
-여기서 $(A_{a}\cdot A_{\hat{a}})$ 은 두 Attribute를 곱하는 것으로 relatedness를 의미한다.   그리고 $P((a,v)|(\hat{a},\hat{v}))$는 $(\hat{a},\hat{v})$ 가 주어졌을 때, $(a,v)$를 구하는 확률이다. 이는 두 Attribute의 상관성을 의미한다.  
+여기서 $(A_{a}\cdot A_{\hat{a}})$ 은 두 Attribute를 곱하는 것으로 relatedness를 의미한다. 여기서는 코드를 짜보면서 $A_{a}$가 무엇을 의미하는지 파악할 필요가 있다. 그리고 $P((a,v)|(\hat{a},\hat{v}))$는 $(\hat{a},\hat{v})$ 가 주어졌을 때, $(a,v)$를 구하는 확률이다. 이는 두 Attribute의 상관성을 의미한다.  
  
 
 마지막에 최적화를 할 때는 loglikelihood를 이용한다. 근데 뒤에 regularization factor를 곱해서 정규화를 시킨다. 정규화 식은 논문 (13),(14)를 참고하면 된다.  
