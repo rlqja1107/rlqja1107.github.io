@@ -33,20 +33,22 @@ TransE, TransR, TransH 등은 지식 그래프 임베딩의 한 방법으로 Ent
 즉, Attribute Type이라고 한다면 다음과 같다. (e,a,v)로 표현된다. e를 여기서 사람이라고 한다면 a는 Gender라고 한다면 v는 Male이 된다. 즉, '김기범(e)의 Gender(a)는 Male(v)이다' 라는 관계가 성립된다. 여기서 Male은 하나의 Entity라고 보지 않고 하나의 Abstract 대상이라고 생각하면 쉽다.  
 ## 논문의 핵심 Point    
 ![image](https://user-images.githubusercontent.com/55014424/107148773-611a6f80-6998-11eb-8393-d74de3d8d23a.png)  
-위와 그림과 같이 보면 이해가 더 쉽다. 노란 박스와 초록 박스는 각각의 Attribute를 나타낸다. 그리고 주황색 원은 각 Entity를 나타내고 선은 Entity간의 Relation을 나타낸다. 즉, '김기범의 친구는 OOO이다'가 선으로 표현된다.  
-왼쪽의 그림은 일반 TransE, TransR처럼 모든 Entity와 Attribute를 하나의 Graph로 표현한 것이라면, 오른쪽 그림은 Attribute 공간을 따로 만들어 Entity 공간과의 관계로 표시된다. 즉, Attribute 공간과 Entity 공간을 따로 생각한다는 것이다. 이후에 다시 설명하지만, Entity와 Attribute간의 관계 유지를 위해 Entity 공간을 Single Layer를 통해 Attribute 공간으로 보낸다.   
-Embedding **(X)**라고 했을 때, 우리의 Objective Function은 다음과 같다.    
-$\mathrm{P(S,Y)|X)=P(S|X)P(Y|X)=\prod_{(h,r,t)\in S}P((h,r,t)|X)\prod_{e,a,v\in Y}P((e,a,v)|X)}, S\subseteq E \times R \times  E, Y\subseteq E \times A \times V$  
-여기서 relational triple과 attributional triple은 서로 독립임을 가정한다. 즉 해석하면, Embedding이 주어졌을 때, 우리는 S, Entity와 Entity 간의 Relation,과 Y, Entity와 Attribute간의 관계의 확률을 최대화시키는 방향으로 진행한다.  
+위와 그림과 같이 보면 이해가 더 쉽다. 노란 박스와 초록 박스는 각각의 **Attribute**를 나타낸다. 그리고 주황색 원은 각 **Entity**를 나타내고 선은 Entity간의 Relation을 나타낸다. 즉, '김기범의 친구는 OOO이다'가 선으로 표현된다.  
+왼쪽의 그림은 일반 TransE, TransR처럼 모든 Entity와 Attribute를 하나의 Graph로 표현한 것이라면, 오른쪽 그림은 Attribute 공간을 따로 만들어 Entity 공간과의 관계로 표시된다. **즉, Attribute 공간과 Entity 공간을 따로 생각한다는 것이다**. 이후에 다시 설명하지만, Entity와 Attribute간의 관계 유지를 위해 Entity 공간을 Single Layer를 통해 Attribute 공간으로 보낸다.   
+Embedding (**X**)라고 했을 때, 우리의 Objective Function은 다음과 같다.    
+$$\mathrm{P(S,Y)|X)=P(S|X)P(Y|X)=\prod_{(h,r,t)\in S}P((h,r,t)|X)\prod_{e,a,v\in Y}P((e,a,v)|X)}, S\subseteq E \times R \times  E, Y\subseteq E \times A \times V$$  
+
+여기서 relational triple과 attributional triple은 서로 독립임을 가정한다. 해석하면, Embedding이 주어졌을 때, 우리는 S(Entity와 Entity 간의 Relation)과 Y(Entity와 Attribute간의 관계)의 확률을 최대화시키는 방향으로 진행한다.  
 * 한 가지를 빠트려서 추가  
 TransE에서는 1:1 즉, one-to-one의 Relation만 표현이 가능하다. one-to-one, one-to-many를 해석하는데 어려움이 있었지만, 예를 보면 쉽게 이해가 가능하다.  
-> one-to-one : 대한민국(head) 수도(relation)는 서울(tail)이다. 라고 하면, 하나의 relation으로 하나의 tail이 결정된다.  
-> one-to-many : relation을 gender라고 하면, 많은 사람(head)들은 남성(tail)이다. 라고 하면 head가 n이 되어 1:n의 관계를 형성한다.  
+> * one-to-one : 대한민국(head) 수도(relation)는 서울(tail)이다. 라고 하면, 하나의 relation으로 하나의 tail이 결정된다.  
+> * one-to-many : relation을 gender라고 하면, 많은 사람(head)들은 남성(tail)이다. 라고 하면 head가 n이 되어 1:n의 관계를 형성한다.  
 
 
 
 TransE에서의 one-to-many relation의 한계를 **Attribute**를 이용하면 표현이 가능하다.   
-* 참고  
+
+## 참고    
 
 
 ### Relational Triple Encoder(RTE)  
