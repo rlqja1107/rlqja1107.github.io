@@ -4,5 +4,5 @@ title: Graph
 slug: graph
 category: recommendation system
 menu: true
-order: 1
+order: 2
 ---
