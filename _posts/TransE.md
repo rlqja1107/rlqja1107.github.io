@@ -6,7 +6,18 @@ categories: recommendation system
 tags: graph
 comments: true
 ---
-  
+
+
+
+
+
+
+
+
+
+
+
+
 # TransE
 ## 읽은 날짜  
 2021-02-08  
@@ -27,4 +38,6 @@ TransE는 Hetergenous Network에 적용이 가능하다. 즉, 타입이 다른 E
 위와 같은 TransE의 특성을 알고 지식 그래프 임베딩에 사용할 수 있으면 좋다. 그리고 위에서 **지식**그래프에서 언급했듯이 head+relation \approx tail로 근접시키는 것이 핵심이다. Relation을 임베딩 공간으로 **Translation**되는 것도 TransE의 한 특징이다.  
 ### Model Framework  
 * \mathit{L = \sum_{(h,l,t)\in S}\sum_{(\hat{h},l,\hat{t})\in S^{`})} [r +d(h+l,t)-d(h^{`}+l,t^{`})]_{+}}   
-여기서 \mathit{d(h+l,t)} 은 dissimilarity measure로 거리를 나타낸다. 물론 \L_{1}/L_{2} 를 이용해도 된다. 
+여기서 \mathit{d(h+l,t)} 은 dissimilarity measure로 거리를 나타낸다. 물론 \L_{1}/L_{2} 를 이용해도 된다. 여기서 \hat{h},l,\hat{t}\in S^{`} 은 **Corrupted Triplet**을 의미하여 S^{`}_{h,l,t} = \left \{ (h^{`}, l, t)|h^{`}\in E \cup  (h,l,t^{`})|t^{`}\in E \right \} 를 의미한다. 여기서 해석한 바로는 Head와 Tail을 제외한 나머지 Entity를 의미한다고 해석했다.  
+Train시킬 때 Mini-batch로 뽑게 되는데 하나의 Sample triple당 **Corrupted Triple**을 하나씩 뽑아서 **Negative Sampling**을 진행한다. 마지막으로 Embedding시킬 때, Entity를 Normalize하기 위해 전체의 Norm을 1로 맞췄다.  
+Negative Samping
