@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[논문]TransR - 지식그래프"
+title: "[논문]TransD - 지식그래프"
 subtitle: "Entity와 Relation별로 Dynamic table를 만들어 Project시키는 방법"
 categories: recommendation
 tags: graph
@@ -51,14 +51,46 @@ TransD에서는 2개의 vector를 정의한다.
 > **첫 번째 벡터**($h,t$) : Relation 또는 Entity 자체를 의미하는 Vector. 이는 TransE, TransR에서 사용하는 $h$, $t$와 같은 의미로 봐도 된다.  
 > **두 번째 벡터**($h_{p},t_{p},r,r_{p}$) : Mapping Matrix를 Construct하는데 사용된다.  
 
+2 번째 벡터를 자세히 얘기하면 다음과 같다.  
+Entity($E$), Relation($R$)은 2번째 벡터에서 다른 차원을 갖어도 된다.  
+$$E \in \mathbb{R}^{m}, R \in \mathbb{R}^{n}$$  
+다른 Type을 갖는 Entity, 그리고 다른 Type을 갖는 Relation은 다음과 같은 식으로 다른 **Mapping Matrix**를 만들 수 있다. 하나의 triple에 대해서는 head, tail 2개의 Mapping Matrix를 만들 수 있다.   
+$$M_{rh} = r_{p}h_{p}^{T}+I^{m\times n}$$   
+$$M_{rt} = r_{p}t_{r}^{T}+I^{m\times n}$$   
+다음과 같은 식으로 2개의 Mapping Matrix가 정의된다. 참고로, $h_{p}, t_{p}, r_{p}$는 모두 Projection 벡터다. 2가지 다른 Mapping Matrix를 이용하여 head,tail를 다르게 Relation Space에 적용할 수 있다.  
+$$h_{\perp} = M_{rh}h$$ 
+$$t_{\perp} = M_{rt}t$$   
+$h_{\perp},t_{\perp}$는 head와 tail를 Relation 공간에 정사영시킨 벡터다. 이를 이용하여 우리는 score function을 정의할 수 있다. score function뿐만 아니라, margin을 기반으로 한 **objective function**도 바로 소개하려고 한다.  
+* score function    
+$$f_{r}(h,t) = -\left \| h_{\perp} + r - t_{\perp} \right \|_{2}^{2}$$   
+**Constraint**   
 
+$$\left \| h \right \|_{2}, \left \| t \right \|_{2}, \left \| r\right \|_{2}, \left \| h_{\perp} \right \|_{2}, \left \| t_{\perp} \right \| \leq 1$$   
+
+
+* objective function    
+
+
+
+$$L = \sum_{\xi \in \Delta}\sum_{{\xi}' \in {\Delta}'}\left [ r+f_{r}({\xi}')-f_{r}(\xi) \right ]_{+}$$    
+
+Notion:  
+
+$\xi$ : Positive Training Triplet으로 Knowledge Graph에 존재하는 Triple을 의미한다.  
+${\xi}'$ : Negatvie Triplet을 의미한다. ${\Delta}$를 보면 쉽게 이해할 수 있다.  
+${\Delta}'$ : Sampling 된 triple를 $(h_{l},r_{l},t_{l})$라고 하자. $h_{l}$ 또는 $t_{l}$이 다르지만, Knowledge Graph에 들어가있는 Set을 의미한다. 예를 통해 이해하면, 부산(h)은 대한민국(t)의 광역시(r)다 를 Sample했다고 하자. 그러면 ${\Delta}'$ 중 하나로 대전(${h}'$)은 대한민국(t)의 광역시(r)다 로 예를 들 수 있다.   
+#### Overfitting 방지   
+
+**TransR**과 마찬가지로 Overfitting을 막기 위해서 먼저 TransE로 학습시킨 Embedding 값으로 초기화시킨다. 그리고 Transfer Matrix는 Identity Matrix로 초기화하여 Overfitting을 막는다.   
+
+
+**Link Prediction**은 TransR에서 소개한 방식과 같은 방식으로 이루어진다.  
 
 ---  
 
 
 [[Kaist Winter Internship](http://dsail.kaist.ac.kr)] 
 <img width="300" alt="DSAIL" src="https://user-images.githubusercontent.com/55014424/107319695-ad71c680-6ae2-11eb-8d78-3fcc3bfdce95.png">   
-
 ---
 
 
