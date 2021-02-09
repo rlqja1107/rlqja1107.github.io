@@ -5,7 +5,6 @@ subtitle: "Entity와 Relation별로 Dynamic table를 만들어 Project시키는 
 categories: recommendation 
 tags: graph
 comments: true
-use_math: true
 ---
 
 

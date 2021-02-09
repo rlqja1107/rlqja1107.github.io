@@ -5,7 +5,7 @@ subtitle: "Entity Space와 Relation Space를 따로 생각"
 categories: recommendation
 tags: graph
 comments: true
-use_math: true
+
 ---
 
 
