@@ -21,9 +21,7 @@ mathjax: true
 Yankai Lin, Zhiyuan Liu, Maosong Sun  
 
 ## 논문 원본  
-[KR-EAR](https://linyankai.github.io/publications/ijcai2016_krear.pdf)  
-## 날짜     
-> 2021-02-07   
+[KR-EAR](https://linyankai.github.io/publications/ijcai2016_krear.pdf)     
 
 
 ## 논문의 목적  
