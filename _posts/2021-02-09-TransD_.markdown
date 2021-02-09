@@ -55,13 +55,24 @@ TransD에서는 2개의 vector를 정의한다.
 Entity($E$), Relation($R$)은 2번째 벡터에서 다른 차원을 갖어도 된다.  
 $$E \in \mathbb{R}^{m}, R \in \mathbb{R}^{n}$$  
 다른 Type을 갖는 Entity, 그리고 다른 Type을 갖는 Relation은 다음과 같은 식으로 다른 **Mapping Matrix**를 만들 수 있다. 하나의 triple에 대해서는 head, tail 2개의 Mapping Matrix를 만들 수 있다.   
+$$M_{rh} = r_{p} h_{p}^{T} + I^{m \times n}$$   
+$$M_{rt} = r_{p} t_{r}^{T} + I^{m \times n}$$   
+다음과 같은 식으로 2개의 Mapping Matrix가 정의된다. 참고로, $h_{p}, t_{p}, r_{p}$는 모두 Projection 벡터다. 2가지 다른 Mapping Matrix를 이용하여 head,tail를 다르게 Relation Space에 적용할 수 있다.  
+$$h_{\perp} = M_{rh}h$$ 
+$$t_{\perp} = M_{rt}t$$   
+$h_{\perp},t_{\perp}$는 head와 tail를 Relation 공간에 정사영시킨 벡터다. 이를 이용하여 우리는 score function을 정의할 수 있다. score function뿐만 아니라, margin을 기반으로 한 **objective function**도 바로 소개하려고 한다.  
+* score function    
+$$f_{r}(h,t) = -\left \| h_{\perp} + r - t_{\perp} \right \|_{2}^{2}$$   
+**Constraint**   
+
+$$\left \| h \right \|_{2}, \left \| t \right \|_{2}, \left \| r\right \|_{2}, \left \| h_{\perp} \right \|_{2}, \left \| t_{\perp} \right \| \leq$$   
 
 
 * objective function    
 
 
 
-$$L = \sum_{\xi \in \Delta}\sum_{{\xi}' \in {\Delta}'}\left [ r+f_{r}({\xi}')-f_{r}(\xi) \right ]_{+}$$    
+
 
 Notion:  
 
