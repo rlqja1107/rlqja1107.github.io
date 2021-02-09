@@ -72,7 +72,7 @@ $$\left \| h \right \|_{2}, \left \| t \right \|_{2}, \left \| r\right \|_{2}, \
 
 
 
-
+$$L = \sum_{\xi \in \Delta} \sum_{ {\xi}' \in {\Delta}'} \left [ r + f_{r} ({\xi}') - f_{r} (\xi) \right ]_{+}$$      
 
 Notion:  
 
