@@ -5,13 +5,15 @@ subtitle: "Entity와 Relation별로 Dynamic table를 만들어 Project시키는 
 categories: recommendation 
 tags: graph
 comments: true
-mathjax: true
+use_math: true
 ---
+
 
 
 
 # Knowledge Graph Embedding via Dynamic Mapping Matrix 
 > 본 논문은 개인의 해석 및 이해를 바탕으로 정리  
+
 
 
 
