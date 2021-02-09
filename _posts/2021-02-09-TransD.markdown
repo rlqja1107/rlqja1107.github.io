@@ -90,7 +90,7 @@ ${\Delta}'$ : Sampling 된 triple를 $(h_{l},r_{l},t_{l})$라고 하자. $h_{l}$
 ---  
 
 
-[[Kaist Winter Internship](http://dsail.kaist.ac.kr) - 그래프 임베딩] 
+[[Kaist Winter Internship](http://dsail.kaist.ac.kr)] 
 <img width="300" alt="DSAIL" src="https://user-images.githubusercontent.com/55014424/107319695-ad71c680-6ae2-11eb-8d78-3fcc3bfdce95.png">   
 ---
 
