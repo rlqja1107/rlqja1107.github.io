@@ -52,7 +52,7 @@ TransD에서는 2개의 vector를 정의한다.
 > **첫 번째 벡터**($h,t$) : Relation 또는 Entity 자체를 의미하는 Vector. 이는 TransE, TransR에서 사용하는 $h$, $t$와 같은 의미로 봐도 된다.  
 > **두 번째 벡터**($h_{p},t_{p},r,r_{p}$) : Mapping Matrix를 Construct하는데 사용된다.  
 
-2 번째 벡터를 자세히 얘기하면 다음과 같다.  
+<!-- 2 번째 벡터를 자세히 얘기하면 다음과 같다.  
 Entity($E$), Relation($R$)은 2번째 벡터에서 다른 차원을 갖어도 된다.  
 $$E \in \mathbb{R}^{m}, R \in \mathbb{R}^{n}$$  
 다른 Type을 갖는 Entity, 그리고 다른 Type을 갖는 Relation은 다음과 같은 식으로 다른 **Mapping Matrix**를 만들 수 있다. 하나의 triple에 대해서는 head, tail 2개의 Mapping Matrix를 만들 수 있다.   
@@ -85,7 +85,7 @@ ${\Delta}'$ : Sampling 된 triple를 $(h_{l},r_{l},t_{l})$라고 하자. $h_{l}$
 **TransR**과 마찬가지로 Overfitting을 막기 위해서 먼저 TransE로 학습시킨 Embedding 값으로 초기화시킨다. 그리고 Transfer Matrix는 Identity Matrix로 초기화하여 Overfitting을 막는다.   
 
 
-**Link Prediction**은 TransR에서 소개한 방식과 같은 방식으로 이루어진다.  
+**Link Prediction**은 TransR에서 소개한 방식과 같은 방식으로 이루어진다.   -->
 
 ---  
 
