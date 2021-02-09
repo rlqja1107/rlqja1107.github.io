@@ -20,8 +20,7 @@ comments: true
 ## 논문 요약  
 
 ### 논문 목적  
-  
- gogo     
+       
 지식 그래프의 한 Approach로 Entity와 relation을 하나의 Space에 **low-dimensional**로 Embedding하기 위한 목적을 갖는다. TransE나 TransR 모두 지식 그래프 임베딩의 기초로서 작용한다. 다른 Network Embedding의 방법으로 Structure와 Connection을 유지하며 Graph에 Embedding시킨다. 여기서도 Connection 형태를 그래프에 임베딩하기 위해 Triplet형태의 Connection을 유지하며 이를 Graph에 적용시킨다. 그래프 임베딩 방법 중 하나인 지식 그래프 임베딩 방법을 익힌다.  
 ### 논문의 핵심 Point  
 ---  
@@ -64,6 +63,6 @@ Negative Samping의 자세한 사항은 LINE 발표자료에서 자세히 다루
 
 
 
-[[Kaist Winter Internship](http://dsail.kaist.ac.kr) - 그래프 임베딩] 
-<img width="520" alt="DSAIL" src="https://user-images.githubusercontent.com/55014424/107319695-ad71c680-6ae2-11eb-8d78-3fcc3bfdce95.png">   
+[[Kaist Winter Internship](http://dsail.kaist.ac.kr)] 
+<img width="300" alt="DSAIL" src="https://user-images.githubusercontent.com/55014424/107319695-ad71c680-6ae2-11eb-8d78-3fcc3bfdce95.png">   
 ---
