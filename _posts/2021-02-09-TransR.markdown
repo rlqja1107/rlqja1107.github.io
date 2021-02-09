@@ -1,0 +1,83 @@
+---
+layout: post
+title: "[논문]TransR - 지식그래프" 
+subtitle: "Entity Space와 Relation Space를 따로 생각"  
+categories: recommendation 
+tags: graph
+comments: true
+mathjax: true
+---
+
+
+
+# Learning Entity and Relation Embeddings for Knowledge Graph Completion    
+> 본 논문은 개인의 해석 및 이해를 바탕으로 정리    
+
+
+
+## 저자  
+Yankai Lin, Zhiyuan Liu, Maosong Sun, Yang Liu, Xuan Zhu   
+## 논문 원본  
+[TransR](https://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/viewFile/9571/9523/)  
+## 읽은 날짜  
+2021-02-09  
+## 논문 요약  
+---  
+
+### 논문 목적  
+TransE, TransH의 경우에는 Entity를 **같은 공간**에 놓고 TransE의 경우에는 Relation을 Head에 더하여 Tail에 가깝게 하는 방식으로 learning하고, TransH의 경우에는 각 relation별로 hyperplance이 존재하고 법선벡터가 존재하여 **같은 공간**에서 head와 tail를 hyperplane에 정사영시킨 후, relation을 적용하여 가깝게 하는 방식으로 진행된다.  
+
+하지만, 이 논문에서는 Entity와 Relation을 같은 공간에서 다루는 것이 문제가 있다고 논한다. 그 이유는 Entity마다 여러 aspect를 갖고 relation을 맺을 때도 하나의 aspect만을 고려하는 것이 아니라 다양한 aspect와 relation을 맺는다. 이를 하나의 공간에서 다루는 것이 문제가 있다고 논한다. 따라서, 서로 다른 relation을 다른 공간을 갖고 Entity를 개별 relation 공간으로 이동시킨 후, **translate**하는 방법을 이용하는 것을 목적으로 두고 있다.   
+
+### 논문 핵심에 앞서 정리  
+#### 지식 그래프  
+항상 논문을 읽거나 Notion을 볼 때 왜 그것을 사용하는지, 어떻게 사용하는지에 초점을 맞추려고 노력한다. 여기에서도 지식 그래프를 이용하는 **목적**에 집중했다. TransR을 이해하기에 앞서 다음의 내용을 짚고 넘어가면 TransR을 이해하는데 도움이 된다고 생각한다.  
+> 지식 그래프는 Entity사이에 link를 예측하기 위함  
+
+#### 이전 Link Prediction의 문제  
+1. Entity Type이 서로 달라서 특징이 다르다. 그리고 Entity는 다양한 Aspect가 존재하여 하나의 relation으로 단정 짓는 문제점  
+2. Edge가 서로 다른 Entity의 Relation을 의미한다. 즉, edge의 type도 이해하는 것이 필요    
+### 논문 핵심 Point   
+
+이 논문에서는 TransE와 TransR이 Entity와 Relation을 갖은 공간에서 다루는 것에서 issue를 제기하고, relation별로 다른 공간으로 이동시킨 후, translate시킨다. 
+아래의 그림을 보면 이해하기가 쉽다.  
+<img width="300" alt="화면 캡처 2021-02-09 134238" src="https://user-images.githubusercontent.com/55014424/107316806-c4151f00-6adc-11eb-89aa-74f7febb843e.png">   
+왼쪽 그림은 Entity 공간인데 이를 head와 tail를 relation 공간으로 project시킨 후, TransE처럼 head와 tail를 가깝게 만든다. 같은 Entity Type의 Head 또는 Tail를 가지더라도 Relation에 따라서 다양한 Pattern을 보이면서 다른 의미를 갖게 된다. Relation별로 같은 Entity여도 다른 Vector로 표현된다는 것을 의미한다.  
+
+
+##### 위의 그림을 이해한 개인의 해석  
+Entity와 Entity끼리 relation맺을 때는 Entity의 Type이 다양하고 Type에 따라 relation이 달라질 것이다. 하지만, Type에 따라서 달라지는 relation을 같은 공간에서 다루는 것은 그러한 다양성을 반영하지 못했다고 해석했다. 따라서, entity의 다양성 또는 relation의 다양성을 같은 공간으로 한정지어 한정 짓는 것이 아니라, 'Relation별로 개별 공간을 만들어서 다양성을 반영시키자'의 방향으로 해석했다.   
+
+#### Model 해석  
+$$h,t\in \mathbb{R}^{k}$$  
+$h$와 $t$의 경우 같은 k차원의 Embedding 공간에 존재한다. 다만,  
+$$r\in \mathbb{R}^{d}$$  
+r의 relation은 Entity와 다르게 d 차원의 공간에 따로 존재한다. 우리는 Entity를 먼저 Relation의 공간으로 translation시킨 후, 다루어야 한다. Translate할 때는 **Projection Matrix**를 이용하여 이동시킨다.  
+$$M_{r}\in \mathbb{R}^{k\times d}$$  
+$M_{r}$를 이용하여 Entity 공간에서 Relation 공간으로 이동시키는 것이 이 논문의 핵심이라고 생각한다.  
+$$h_{r,c} = hM_{r}$$  
+$$t_{r,c} = tM_{r}$$  
+위의 식으로 $h_{r,c}$은 relation 공간으로 이동시킨 Vector다.  
+##### Objective Function  
+$$f_{r}(h,t) = \left \| h_{r,c}+r_{c}-t_{r,c} \right \|_{2}^{2}$$   
+위는 기본 objective function에 margin을 넣은 score function을 정의하면  
+$$L = \sum_{(h,r,t)\in S}\sum_{{h}',r,{t}'\in {S}'}max(0,f_{r}(h,t)+r-f_{r}({h}',{h}'))$$    
+#### Training  
+
+위의 **Objective Function**에는 Corrupted Triple이 존재한다. Corrupted Triple Set을 만들 때 지식 그래프에 존재하는 triple에서 head 또는 tai을 바꾼 것이다. 논문에서는 대체 할 때, **[Wang et al.2014]**에서 다른 확률로 두어서 대체했다고 한다. **Wang**의 논문을 읽어봐야겠지만, Alias Sampling을 이용해도 되지 않을까 생각했다. one-to-many에서 one 쪽을 바꿀 확률을 높이는 방법이다.    
+overffiting을 막기 위해서, 처음에 entity와 relation embedding을 TransE로 나온 결과를 learning시키고 relation Matrix($M_{r}$)의 경우에는 Identity Matrix를 이용한다고 한다.   
+##### Link Prediction  
+지식 그래프에서 중요한 것은 **Link**를 얼마나 정확하게 예측하느냐가 중요하다고 언급했었다. Link Prediction할 때는 하나의 최고 결과를 이용하는 것이 아니라 Candidate를 두고 그 중에서 rank를 계산하고 상위 n개 중에 link가 있는지 없는지에 따라서 performance를 결정한다.  
+test triple이 있을 때(이는 개인이 전체 triple에서 train과 test triple를 나눠줘야 한다), head와 tail를 모든 entity로 바꿔준다. 즉, 모든 Entity를 고려하여 rank를 계산 후, top n개를 걸러내겠다는 뜻이다. Metric 방법에는 2가지가 존재한다.  
+1. Correct entity의 평균 rank 계산.  
+
+head와 relation이 있을 때, 지식 그래프에서 tail이 존재할 것이고, 우리는 test에서 예측하게 된다. 그래서 rank를 주었을 때, 지식그래프에서의 tail의 rank를 계산하게 되고 test triple의 모든 rank를 계산하고 평균을 낸다.  
+2. top-10 개 중에 correct entity가 존재하는지 확인한다.  
+head와 relation이 있을 때, tail를 test에서 예측하게 된다. 이 때, 전체 entity를 보는 것이 아니라 상위 10개의 entity만을 보고 correct entity가 존재하는지 확인하고, 존재하는 triple의 비율을 보는 방법이다.  
+---  
+[[Kaist Winter Internship](http://dsail.kaist.ac.kr) - 그래프 임베딩] 
+<img width="520" alt="DSAIL" src="https://user-images.githubusercontent.com/55014424/107319695-ad71c680-6ae2-11eb-8d78-3fcc3bfdce95.png">   
+
+  
+
+---

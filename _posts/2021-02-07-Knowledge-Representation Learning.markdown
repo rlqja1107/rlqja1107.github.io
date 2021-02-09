@@ -14,10 +14,12 @@ mathjax: true
 
 
 
-## Author  
+## 저자    
 Yankai Lin, Zhiyuan Liu, Maosong Sun  
 
-## 읽은 날짜   
+## 논문 원본  
+[KR-EAR](https://linyankai.github.io/publications/ijcai2016_krear.pdf)  
+## 날짜     
 > 2021-02-07   
 
 
@@ -31,7 +33,9 @@ TransE, TransR, TransH 등은 지식 그래프 임베딩의 한 방법으로 Ent
 
 
 즉, Attribute Type이라고 한다면 다음과 같다. (e,a,v)로 표현된다. e를 여기서 사람이라고 한다면 a는 Gender라고 한다면 v는 Male이 된다. 즉, '김기범(e)의 Gender(a)는 Male(v)이다' 라는 관계가 성립된다. 여기서 Male은 하나의 Entity라고 보지 않고 하나의 Abstract 대상이라고 생각하면 쉽다.  
-## 논문의 핵심 Point    
+## 논문의 핵심 Point   
+---  
+
 ![image](https://user-images.githubusercontent.com/55014424/107148773-611a6f80-6998-11eb-8393-d74de3d8d23a.png)  
 위와 그림과 같이 보면 이해가 더 쉽다. 노란 박스와 초록 박스는 각각의 **Attribute**를 나타낸다. 그리고 주황색 원은 각 **Entity**를 나타내고 선은 Entity간의 Relation을 나타낸다. 즉, '김기범의 친구는 OOO이다'가 선으로 표현된다.  
 왼쪽의 그림은 일반 TransE, TransR처럼 모든 Entity와 Attribute를 하나의 Graph로 표현한 것이라면, 오른쪽 그림은 Attribute 공간을 따로 만들어 Entity 공간과의 관계로 표시된다. **즉, Attribute 공간과 Entity 공간을 따로 생각한다는 것이다**. 이후에 다시 설명하지만, Entity와 Attribute간의 관계 유지를 위해 Entity 공간을 Single Layer를 통해 Attribute 공간으로 보낸다.   
@@ -86,6 +90,14 @@ $$\mathit{z(e,a,v,Y(e))\propto \sum_{(e,\hat{a},\hat{v}\in Y(e))}P((a,v)|(\hat{a
 
 
 TransE, TransR을 읽을 때는 몰랐지만, Entity 간에 Relation에 집중을 했던 것 같다. 하지만, Network를 보면 Attribute를 나타내는 Network도 존재한다. 특히, 지식 그래프를 임베딩할 때는 Attribute가 많이 사용된다. 당장에 하나은행 프로젝트에서도 대부분이 Attribute로 구성되어있는 것을 보면, 이 논문은 지식 그래프 임베딩 할 때, Attribute도 고려할 때 도움이 많이 될 것이다.  
+
+
+---  
+
+
+
+[[Kaist Winter Internship](http://dsail.kaist.ac.kr) - 그래프 임베딩] 
+<img width="520" alt="DSAIL" src="https://user-images.githubusercontent.com/55014424/107319695-ad71c680-6ae2-11eb-8d78-3fcc3bfdce95.png">   
 
 ---
 
