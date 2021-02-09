@@ -64,6 +64,6 @@ Negative Samping의 자세한 사항은 LINE 발표자료에서 자세히 다루
 
 
 
-<!-- [[Kaist Winter Internship](http://dsail.kaist.ac.kr) - 그래프 임베딩] 
-<img width="520" alt="DSAIL" src="https://user-images.githubusercontent.com/55014424/107319695-ad71c680-6ae2-11eb-8d78-3fcc3bfdce95.png">    -->
+[[Kaist Winter Internship](http://dsail.kaist.ac.kr) - 그래프 임베딩] 
+<img width="520" alt="DSAIL" src="https://user-images.githubusercontent.com/55014424/107319695-ad71c680-6ae2-11eb-8d78-3fcc3bfdce95.png">   
 ---
