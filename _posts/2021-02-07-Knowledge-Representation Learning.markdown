@@ -10,7 +10,7 @@ comments: true
 
 
 # Knowledge Representation Learning with Entities, Attributes and Relations   
-> 본 논문은 개인의 해석 및 이해를 바탕으로 정리  
+> 본 논문을 개인의 해석 및 이해를 바탕으로 정리  
 
 
 
