@@ -53,23 +53,25 @@ Inductive방식을 통해 **Predictive Model**를 추출 할 수 있다. 이 Mod
 
 지금까지의 Framework와는 새로운 **Framework**라는 점에서 흥미롭다. 이해할 때, 각 노드를 graph에 Embedding시키는 것이 아니라 input으로 노드를 넣으면 output으로 Embedding Vector가 나오는 black box를 learning시키는 방식으로 이해했다.    
 ### Aggregate Function   
----  
+    
 Aggregate function은 그림으로 보면 이해하기 쉽다.  
 <img width="550" src="https://user-images.githubusercontent.com/25279765/76823847-bc131780-6858-11ea-956f-0daf94342329.png">    
 
 가운데 빨간 Node가 Main Node라고 생각하자. 우리는 k=1(1-hop) Neighborhood Node의 feature information을, k=2(2-hop, 이웃의 이웃 노드) node의 feature information을 모아서 Main Node를 표현하고 싶다. 이 때, Main Node의 이웃으로부터 feature 정보를 모으게 하는 함수가 **Aggregate Function**이다. Aggregate Function의 종류로는 이 논문에서는 3가지를 소개하고 있다.   
  
 ### Algorithm 1 - Mini Batch사용 x   
----  
+    
 <img width ="600" src="https://user-images.githubusercontent.com/25279765/76822513-a7cd1b80-6854-11ea-9336-ea3133cd60f1.png">  
 위의 알고리즘을 이해한 방식은 다음과 같다.   
 
 1. k = 1 : 먼저 Main Node의 이웃 노드들의 **feature정보**를 aggregate하고, 자신의 feature정보를 concat해서 single layer network를 이용하여 Main Node를 표현한다.  
 2. k = 2 : 1.을 통해 Main Node의 이웃 노드(k=1)들은 Main Node의 이웃 노드의 이웃 노드(k=2)로부터 정보를 이미 Aggregate하여 계산을 해놓았다. 따라서, Main Node는 이웃 노드(k=1)들의 $h_{v}^{1}$ 정보를 이용하여 이웃의 이웃노드들의 정보를 취합한다.  
 3. k=3....., 이웃 노드들은 계속해서 k-번째 이웃의 node 정보를 갖고 있게 된다. 따라서, Main Node는 자신의 이웃 노드로부터 k-번째 이웃의 Node 정보를 취합할 수 있게 된다.  
-
+   
+   
 ### Unsupervised 방식을 이용한 Learning  
----  
+
+     
 **Unsupervised** 상황에서 위의 알고리즘의 마지막 output인 $z_{v}$ graph기반으로 하는 loss function을 이용하여 Training시킬 수 있다.  
 
 $$J_\mathcal{G}(\mathbf{z}_u) = - \log(\sigma(\mathbf{z}_u^\intercal \mathbf{z}_v)) - Q \cdot \mathbb{E}_{v_n \sim P_n(v)}\log(\sigma(-\mathbf{z}_u^\intercal \mathbf{z}_{v_n}))$$  
@@ -78,9 +80,10 @@ $$J_\mathcal{G}(\mathbf{z}_u) = - \log(\sigma(\mathbf{z}_u^\intercal \mathbf{z}_
 $v$: $u$근처에 고정된 길이의 Random Walk한 Node  
 $Q$: Negative Sampling의 수  
 $z_{u}$: 이웃 노드의 Feature로부터 유도된 vector  
-
-### Aggregate Function의 종류  
----  
+     
+### Aggregate Function의 종류    
+    
+    
 - **Mean Aggregator**  
 $$ h_v^k \gets \sigma(\mathbf{W} \cdot \text{MEAN}(\{\mathbf{h}_v^{k-1}\}  \cup \{\mathbf{h}^{k-1}_u, \forall u \in \mathcal{N}(v) \}) $$   
 
@@ -103,11 +106,11 @@ $h_{u}^{k}$, 각 Neighbor노드의 k-th representation을 개별적으로 Single
 
 Max pooling방식을 이용하면 Neighbor 노드의 다양한 Aspect를 반영시킬 수 있다. 왜냐하면 Max값들은 서로 다른 Neighbor의 Information으로부터 추출되기 때문이다.  
 Mulit-Layer Perceptron을 이용하여 정보를 취합할 수도 있었지만, 논문에서는 Single Layer를 이용한다.  
-
-  
-### Algorithm2 - Mini Batch 사용  
----  
-
+    
+     
+### Algorithm2 - Mini Batch 사용      
+      
+    
 <img width = "600" src="https://user-images.githubusercontent.com/25279765/76823398-77d34780-6857-11ea-88ab-e2cfa187b226.png">    
 
 Mini Batch를 방식을 이용해서 구하는 방식이다. $B$는 node를 Representation으로 나타내고 싶은 Node들이 모여있는 **Mini Batch**다. 여기서 주의해야 할 것은 $B^{1}$과 $B$는 서로 다른 개념이다.  
