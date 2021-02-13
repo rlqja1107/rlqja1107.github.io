@@ -85,7 +85,6 @@ $$ h_v^k \gets \sigma(\mathbf{W} \cdot \text{MEAN}(\{\mathbf{h}_v^{k-1}\}  \cup 
 Node $v$가 있을 때, 이웃 노드의 k-1th Representation인 $h_{u}^{k-1}$를 모두 평균으로 vector를 구한다. 중요한 것은, Node $v$와 **Concat**을 하지 않는다는 것이다.  
 Concat을 시키지 않고, 평균으로 vector를 구한 뒤 바로, Single layer에 보낸다.  
 > 의문점: 논문에서는 Mean Aggregator가 GCN에서 convolutional propagation과 유사하다고 하지만, GCN을 읽은 입장에서 어떤 부분이 유사한지 이해를 하지 못했다.  
-
 2. **LSTM Aggregator**   
 
 LSTM(Long Short-Term Memory)은 **RNN**의 특수한 Case다. 'a monkey is an animal'의 경우에는 RNN에서 다른 문장말고 이 문장만 보면되겠지만, 여러 문장에서 걸쳐 나온 주제와 같은 경우에는 뒷 문장도 모두 살펴보아야한다. 후자의 경우에는 긴 의존기간을 필요로 하여 학습이 진행되는데, 이를 **LSTM**이라고 한다.  
