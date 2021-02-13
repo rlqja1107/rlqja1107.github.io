@@ -29,9 +29,7 @@ William L.Hamilton, Rex Ying, Jure Leskovec
 
 > **Transductive**  
 
-
-
-Transductive는 지금까지 train한 GNN 방식이라고도 할 수 있다. 이미 모든 데이터를 관측했다. graph에서는 데이터를 node, edge라고 볼 수 있다. 그래서 train한 graph의 **성능**을 보기 위해서 우리는 관측한 데이터 중에서 train과 test로 또는 train, valid, test set으로 나누어서 performance를 살펴본다. 이런 방식을 이용하면 우리는 train set을 통해 **fit**시키고 fit시킨 모델을 통해서 test를 통해 performance를 내게된다. test set의 경우에는 label를 알 수 없지만, dataset에서 유의미한 패턴 또는 정보를 추출할 수 있다.  
+Transductive는 지금까지의 GNN 방식이라고도 할 수 있다. Transductive는 관측한 데이터 중에서 train과 test set으로 나누어서 train시킨다. 이런 방식으로 우리는 train set을 통해 **fit**시키고 fit시킨 모델을 통해서 test를 통해 performance를 내게된다. test set의 경우에는 label를 알 수 없지만, dataset에서 유의미한 패턴 또는 정보를 추출할 수 있다.  
    
 만약 이미 fit시킨 상황에서 새로운 노드(**unseen node**)를 embedding시키고 싶을 때, 처음부터 다시 train시켜야 하는 **computational cost**가 발생하게 된다.   
 Transductive의 경우에는 **Predictive Model**은 별도로 존재하지 않는다.  
@@ -49,9 +47,9 @@ Inductive방식을 통해 **Predictive Model**를 추출 할 수 있다. 이 Mod
 ## 논문 요약  
 ---  
 
-다른 논문들의 Node를 저차원으로 Embedding하는 방식으로는 각 Node를 직접적으로 Optimize하여 Embedding시키려고 한다. 이 논문에서는 신기하게 단지 Neighborhood Node의 feature, Aggregate function을 이용하여 Generic Model를 만들려고 한다. Unseen Node가 있을 때 이를 Graph에 Embedding시키는 Node Generator를 learning시킨다.   
+다른 논문들의 Node를 저차원으로 Embedding하는 방식으로는 각 Node를 **직접적으로** Optimize하여 Embedding시키려고 한다. 이 논문에서는 신기하게 단지 Neighborhood Node의 feature, Aggregate function을 이용하여 **Generic Model**를 만들려고 한다. Unseen Node가 있을 때 이를 Graph에 Embedding시키는 Node Generator를 learning시킨다.   
 
-지금까지의 Framework와는 새로운 **Framework**라는 점에서 흥미롭다. 이해할 때, 각 노드를 graph에 Embedding시키는 것이 아니라 input으로 노드를 넣으면 output으로 Embedding Vector가 나오는 black box를 learning시키는 방식으로 이해했다.    
+지금까지의 Framework와는 새로운 **Framework**라는 점에서 흥미롭다. 이해할 때, 각 노드를 graph에 Embedding시키는 것이 아니라 input으로 노드를 넣으면 output으로 Embedding Vector가 나오는 **black box**를 learning시키는 방식으로 이해했다.    
 ### Aggregate Function   
     
 Aggregate function은 그림으로 보면 이해하기 쉽다.  
@@ -75,7 +73,7 @@ Aggregate function은 그림으로 보면 이해하기 쉽다.
 **Unsupervised** 상황에서 위의 알고리즘의 마지막 output인 $z_{v}$ graph기반으로 하는 loss function을 이용하여 Training시킬 수 있다.  
 
 $$J_\mathcal{G}(\mathbf{z}_u) = - \log(\sigma(\mathbf{z}_u^\intercal \mathbf{z}_v)) - Q \cdot \mathbb{E}_{v_n \sim P_n(v)}\log(\sigma(-\mathbf{z}_u^\intercal \mathbf{z}_{v_n}))$$  
-위의 **Negative Sampling**은 근처에 있는 노드는 비슷하게 Represent하게 하고, 멀리 있는 노드들은 다르게 표현되도록 유도시킨다.  
+위의 **Negative Sampling**은 근처에 있는 노드는 비슷하게 표현하게 하고, 멀리 있는 노드들은 다르게 표현되도록 유도시킨다.  
 
 $v$: $u$근처에 고정된 길이의 Random Walk한 Node  
 $Q$: Negative Sampling의 수  
@@ -89,21 +87,19 @@ $$ h_v^k \gets \sigma(\mathbf{W} \cdot \text{MEAN}(\{\mathbf{h}_v^{k-1}\}  \cup 
 
 Node $v$가 있을 때, 이웃 노드의 k-1th Representation인 $h_{u}^{k-1}$를 모두 평균으로 vector를 구한다. 중요한 것은, Node $v$와 **Concat**을 하지 않는다는 것이다.  
 Concat을 시키지 않고, 평균으로 vector를 구한 뒤 바로, Single layer에 보낸다.  
-> 의문점: 논문에서는 Mean Aggregator가 GCN에서 convolutional propagation과 유사하다고 하지만, GCN을 읽은 입장에서 어떤 부분이 유사한지 이해를 하지 못했다.  
+> 의문점: 논문에서는 Mean Aggregator가 GCN에서 convolutional propagation과 유사하다고 하지만, GCN을 읽은 입장에서 어떤 부분이 유사한지 이해하지 못함..  
 
 
 - **LSTM Aggregator**   
 
 
 LSTM(Long Short-Term Memory)은 **RNN**의 특수한 Case다. 'a monkey is an animal'의 경우에는 RNN에서 다른 문장말고 이 문장만 보면되겠지만, 여러 문장에서 걸쳐 나온 주제와 같은 경우에는 뒷 문장도 모두 살펴보아야한다. 후자의 경우에는 긴 의존기간을 필요로 하여 학습이 진행되는데, 이를 **LSTM**이라고 한다.  
-
 LSTM을 이용하여 Aggregate하는데 문제가 한 가지 있다. 바로 Input이 Sequential하게 처리된다는 것이다. 논문에서는 이를 node의 Neighbor를 random하게 섞어서 Input으로 넣어서 Sequential의 의미를 없애도록 했다.  
 
 - **Pooling Aggregator**  
 
 $$ \text{AGGREGATE}_k^\text{pool} = \max( \{ \sigma(\mathbf{W}_\text{pool}\mathbf{h}^k_{u_i} + \mathbf{b}), \forall u_i \in \mathcal{N}(v) \}) $$  
 $h_{u}^{k}$, 각 Neighbor노드의 k-th representation을 개별적으로 Single Layer에 넣는다. Neighbor 노드의 수가 t개라고 한다면 $h_{u}^{k}$는 t개가 나올 것이다. 여기서 element-wise로 max값만을 추출한다.  
-
 Max pooling방식을 이용하면 Neighbor 노드의 다양한 Aspect를 반영시킬 수 있다. 왜냐하면 Max값들은 서로 다른 Neighbor의 Information으로부터 추출되기 때문이다.  
 Mulit-Layer Perceptron을 이용하여 정보를 취합할 수도 있었지만, 논문에서는 Single Layer를 이용한다.  
     
