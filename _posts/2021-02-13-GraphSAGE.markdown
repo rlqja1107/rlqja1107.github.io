@@ -22,10 +22,9 @@ William L.Hamilton, Rex Ying, Jure Leskovec
 ## 논문 원본  
 [GraphSAGE](https://arxiv.org/pdf/1706.02216.pdf)  
 
-## 논문요약  
+  
+## 논문 목적   
 ---  
-### 논문 목적   
-
 논문 목적을 설명하기에 앞서 **Transductive**와 **Inductive**의 차이점을 살펴보자.  
 
 > **Transductive**  
@@ -48,6 +47,8 @@ Inductive방식을 통해 **Predictive Model**를 추출 할 수 있다. 이 Mod
 이 논문에서는 각 Node를 직접적으로 Optimize하지 않고, Aggregate Function을 learning하며 Unseen Node를 Embedding할 수 있는 Inductive Framwork를 소개하고자 한다.   
 
 ## 논문 요약  
+---  
+
 다른 논문들의 Node를 저차원으로 Embedding하는 방식으로는 각 Node를 직접적으로 Optimize하여 Embedding시키려고 한다. 이 논문에서는 신기하게 단지 Neighborhood Node의 feature, Aggregate function을 이용하여 Generic Model를 만들려고 한다. Unseen Node가 있을 때 이를 Graph에 Embedding시키는 Node Generator를 learning시킨다.   
 
 지금까지의 Framework와는 새로운 **Framework**라는 점에서 흥미롭다. 이해할 때, 각 노드를 graph에 Embedding시키는 것이 아니라 input으로 노드를 넣으면 output으로 Embedding Vector가 나오는 black box를 learning시키는 방식으로 이해했다.    
