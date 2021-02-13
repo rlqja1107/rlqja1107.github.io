@@ -66,7 +66,8 @@ Aggregate function은 그림으로 보면 이해하기 쉽다.
 3. k=3....., 이웃 노드들은 계속해서 k-번째 이웃의 node 정보를 갖고 있게 된다. 따라서, Main Node는 자신의 이웃 노드로부터 k-번째 이웃의 Node 정보를 취합할 수 있게 된다.  
 
 ### Unsupervised 방식을 이용한 Learning  
-**Unsupervised** 상황에서 위의 알고리즘의 마지막 output인 $z_{v}$ graph기반으로 하는 loss function을 이용하여 Training시킬 수 있다. 
+**Unsupervised** 상황에서 위의 알고리즘의 마지막 output인 $z_{v}$ graph기반으로 하는 loss function을 이용하여 Training시킬 수 있다.  
+
 $$J_\mathcal{G}(\mathbf{z}_u) = - \log(\sigma(\mathbf{z}_u^\intercal \mathbf{z}_v)) - Q \cdot \mathbb{E}_{v_n \sim P_n(v)}\log(\sigma(-\mathbf{z}_u^\intercal \mathbf{z}_{v_n}))$$  
 위의 **Negative Sampling**은 근처에 있는 노드는 비슷하게 Represent하게 하고, 멀리 있는 노드들은 다르게 표현되도록 유도시킨다.  
 
@@ -89,9 +90,6 @@ Concat을 시키지 않고, 평균으로 vector를 구한 뒤 바로, Single lay
 LSTM(Long Short-Term Memory)은 **RNN**의 특수한 Case다. 'a monkey is an animal'의 경우에는 RNN에서 다른 문장말고 이 문장만 보면되겠지만, 여러 문장에서 걸쳐 나온 주제와 같은 경우에는 뒷 문장도 모두 살펴보아야한다. 후자의 경우에는 긴 의존기간을 필요로 하여 학습이 진행되는데, 이를 **LSTM**이라고 한다.  
 
 LSTM을 이용하여 Aggregate하는데 문제가 한 가지 있다. 바로 Input이 Sequential하게 처리된다는 것이다. 논문에서는 이를 node의 Neighbor를 random하게 섞어서 Input으로 넣어서 Sequential의 의미를 없애도록 했다.  
-
-
-
 3. **Pooling Aggregator**  
 
 $$ \text{AGGREGATE}_k^\text{pool} = \max( \{ \sigma(\mathbf{W}_\text{pool}\mathbf{h}^k_{u_i} + \mathbf{b}), \forall u_i \in \mathcal{N}(v) \}) $$  
