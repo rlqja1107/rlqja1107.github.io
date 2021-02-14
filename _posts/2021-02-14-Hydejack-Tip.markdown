@@ -11,12 +11,12 @@ comments: true
 
 
 
-<h2 span style="color: royalblue; font-weight: bold">Mathjax 적용시 문제점</span></h2>   
+<h2 span style="color: royalblue; font-weight: bold">Mathjax 적용시 문제점</h2>   
 
 1. Mathjax를 적용시켰는데 새로고침을 해야 실행되는 경우, 바로 적용이 안되는 경우    
 2. 수식이 여러개 나오는 경우  
 
-<h2 span style="color: royalblue; font-weight: bold">해결</span></h2>  
+<h2 span style="color: royalblue; font-weight: bold">해결</h2>  
 
 분명히 인터넷 보고 Mathjax.html 파일을 만들고 적용시켰는데, 왜 적용이 안되는지 몇 시간 날린 후에야 이유를 알게 되었고 해결하게 되었다.  
 다른 Jekyll 테마 같은 경우에는 새로운 url이 입력되면서 새로운 창이 뜬다. 새로운 창이 뜨면서 **Mathjax.html** 파일에서의 script 파일이 자동으로 적용되게 된다. 하지만, Hydejack의 경우에는 새로운 창이 뜨는 것이 아니라 animation형태로 창이 transform이 된다. 그 증거로, 옆에 있는 side-bar는 그대로 있고 Main 화면만 animation효과로 부드럽게 넘어가는 것을 볼 수 있다.  
@@ -31,7 +31,7 @@ windonw.onload = function(){
 }
 ```   
 
-<h2 span style="color: royalblue; font-weight: bold">해결과정</span></h2>  
+<h2 span style="color: royalblue; font-weight: bold">해결과정</h2>  
   
 1. _includes 디렉토리에 **mathjax_support.html**를 추가  
 위에서는 Mathjax.html이라고 했지만 사실 파일명은 상관이 없다. 아래의 코드를 _includes 디렉토리에 추가시켜준다.  
