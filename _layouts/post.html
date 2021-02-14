@@ -4,7 +4,10 @@ layout: base
 
 {% include post.html post=page link_title=false %}
 
-{% include mathjax_support.html %}
+window.onload = function(){
+    {% include mathjax_support.html %}
+}
+
 
 {% include about.html %}
 
