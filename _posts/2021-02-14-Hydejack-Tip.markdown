@@ -60,9 +60,10 @@ windonw.onload = function(){
 <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
 </script>
 ```  
+
 2. _layout 디렉토리에서 post.html에 mathjax_support.html 추가  
 ##### post.html  
-``` math    
+``` python      
 {% include post.html post=page link_title=false %}
 
 window.onload = function(){
