@@ -77,13 +77,13 @@
     {{ post.content }}
     <br />
     <br />
-    <script type="text/x-mathjax-config">
+    <!-- <script type="text/x-mathjax-config">
             MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
         </script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML"
       integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw=="
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script> -->
   </div>
   <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
@@ -93,7 +93,11 @@
   <p class="read-more"><a class="heading" href="{{ post.url | relative_url }}" data-flip="title">Continue reading </a>
   </p>
   {% endunless %}
-
+  <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+      </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/math...">
+  </script>
 </article>
 {% unless include.link_title %}
 <hr class="dingbat" />
