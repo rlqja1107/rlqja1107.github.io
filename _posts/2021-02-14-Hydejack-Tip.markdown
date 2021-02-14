@@ -67,12 +67,13 @@ windonw.onload = function(){
 "include post.html post=page link_title=false" 
 
 window.onload = function(){ 
-    {% include mathjax_support.html %}  
+    "% include mathjax_support.html %"  
 }  
 
 "include about.html" 
 
 "include related.html post=page"   
 ```  
+**(위의 ""를 {}형태로 전환)**  
 post.html에서 window.onload 함수가 사용된다. github blog에서 파일을 열려고 하면 post.html 파일이 실행되는데, window.onload를 통해서 자동으로 실행시켜준다.   
 ---
