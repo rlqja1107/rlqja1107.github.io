@@ -64,7 +64,7 @@ windonw.onload = function(){
 2. _layout 디렉토리에서 post.html에 mathjax_support.html 추가  
  
 ##### post.html  
-   
+<!--    
 ``` python  
  
 " include post.html post=page link_title=false "  
@@ -76,7 +76,7 @@ window.onload = function(){
    
 " include related.html post=page "     
   
-```   
+```    -->
 
     
 
