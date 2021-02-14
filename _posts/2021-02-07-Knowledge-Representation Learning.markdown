@@ -37,6 +37,7 @@ TransE, TransR, TransH 등은 지식 그래프 임베딩의 한 방법으로 Ent
 ---  
 
 ![image](https://user-images.githubusercontent.com/55014424/107148773-611a6f80-6998-11eb-8393-d74de3d8d23a.png)  
+  
 위와 그림과 같이 보면 이해가 더 쉽다. 노란 박스와 초록 박스는 각각의 **Attribute**를 나타낸다. 그리고 주황색 원은 각 **Entity**를 나타내고 선은 Entity간의 Relation을 나타낸다. 즉, '김기범의 친구는 OOO이다'가 선으로 표현된다.  
 왼쪽의 그림은 일반 TransE, TransR처럼 모든 Entity와 Attribute를 하나의 Graph로 표현한 것이라면, 오른쪽 그림은 Attribute 공간을 따로 만들어 Entity 공간과의 관계로 표시된다. **즉, Attribute 공간과 Entity 공간을 따로 생각한다는 것이다**. 이후에 다시 설명하지만, Entity와 Attribute간의 관계 유지를 위해 Entity 공간을 Single Layer를 통해 Attribute 공간으로 보낸다.   
 Embedding (**X**)라고 했을 때, 우리의 Objective Function은 다음과 같다.    
@@ -77,7 +78,7 @@ $$\mathit{P(v\mid e,a,X)= \frac{e^{h(e,a,v)}}{\sum_{\hat{v}\in V_{a}}e^{h(e,a,\h
   
 $$\mathit{h(e,a,v) = - \left \| f(eW_{a}+b_{a})-V_{av} \right \|_{L_{1}/L_{2}} +b_{2}}$$     
    
-여기서 $\mathit{V_{av}}$는 attribute value v의 임베딩을 의미하고 $b_{2}$는 bias 상수를 의미한다.  
+여기서 $$\mathit{V_{av}}$$는 attribute value v의 임베딩을 의미하고 $$b_{2}$$는 bias 상수를 의미한다.  
 ### Attribute 간의 상관성  
 우리는 Attribute 간에 강한 상관성이 존재함을 알 수 있다. 예를 들면, 한국에 사는 사람들은 한국어를 사용하고, 원 단위의 돈을 사용한다 의 강한 상관성을 나타낸다. 여기에서의 핵심은 Attribute사이의 상관성을 고려한다.    
   
@@ -90,7 +91,7 @@ $$\mathit{P((e,a,v)\mid Y(e))= \frac{e^{z(e,a,v,Y(e))}}{\sum_{\hat{v}\in V_{a}}e
 $$\mathit{z(e,a,v,Y(e))\propto \sum_{(e,\hat{a},\hat{v}\in Y(e))}P((a,v)|(\hat{a},\hat{v}))(A_{a}\cdot  A_{\hat{a}})}$$    
     
     
-여기서 $(A_{a}\cdot A_{\hat{a}})$은 두 Attribute를 곱하는 것으로 relatedness를 의미한다. 여기서는 코드를 짜보면서 $A_{a}$가 무엇을 의미하는지 파악할 필요가 있다. 그리고 $P((a,v)\mid (\hat{a},\hat{v}))$는 $(\hat{a},\hat{v})$ 가 주어졌을 때, $(a,v)$를 구하는 확률이다. 이는 두 Attribute의 상관성을 의미한다.  
+여기서 $$(A_{a}\cdot A_{\hat{a}})$$은 두 Attribute를 곱하는 것으로 relatedness를 의미한다. 여기서는 코드를 짜보면서 $A_{a}$가 무엇을 의미하는지 파악할 필요가 있다. 그리고 $$P((a,v)\mid (\hat{a},\hat{v}))$$는 $$(\hat{a},\hat{v})$$ 가 주어졌을 때, $$(a,v)$$를 구하는 확률이다. 이는 두 Attribute의 상관성을 의미한다.  
   
 마지막에 최적화를 할 때는 loglikelihood를 이용한다. 근데 뒤에 regularization factor를 곱해서 정규화를 시킨다. 정규화 식은 논문 (13),(14)를 참고하면 된다.  
 ### Negative Sampling  
