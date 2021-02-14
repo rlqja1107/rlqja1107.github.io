@@ -66,7 +66,8 @@ windonw.onload = function(){
 
 ##### post.html  
    
-``` python      
+``` python  
+ 
 " include post.html post=page link_title=false "  
 
 window.onload = function(){  
