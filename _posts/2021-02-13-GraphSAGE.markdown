@@ -24,6 +24,8 @@ William L.Hamilton, Rex Ying, Jure Leskovec
 
 ## 논문 원본  
 [GraphSAGE](https://arxiv.org/pdf/1706.02216.pdf)  
+  
+
 
   
 ## 논문 목적   
@@ -118,12 +120,7 @@ Line 2~7을 통해서 Mini-batch에서의 Neighbor를 먼저 Sampling한다. 개
 Line 9~15에서 K번째 이웃의 노드들의 feature정보를 K-1번 이웃의 노드들이 Aggregate하여 갖고 있고, iteration이 한 번 더 돌면, K-1번째 이웃의 노드들은 K-2번째 이웃의 정보를 갖고 있는데, K-2번째 이웃은 K-1번째 이웃의 정보를 Aggregate하여 Represent한다.   
 
 Main Node로부터 제일 멀리 있는(K-th) Neighborhood Node의 정보를 K-1th Neighborhood Node로 취합되고, 또, K-2th Neighborhood Node는 K-1 th Neighborhood의 정보를 취합하면서 Main Node까지 전달하게 된다.   
- <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
-    </script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous">
-</script>
+
 
 ---   
 
