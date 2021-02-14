@@ -65,7 +65,7 @@ windonw.onload = function(){
  
 ##### post.html  
    
-<img width = "300" src ="https://user-images.githubusercontent.com/55014424/107874324-18b10380-6efc-11eb-8675-097c4a05a46a.png">  
+<img width = "500" src ="https://user-images.githubusercontent.com/55014424/107874324-18b10380-6efc-11eb-8675-097c4a05a46a.png">  
     
     
 가운데 window.onload 함수 부분만 추가시켜주면 된다. github blog에서 파일을 열려고 하면 post.html 파일이 실행되는데, window.onload를 통해서 자동으로 실행시켜준다.   
