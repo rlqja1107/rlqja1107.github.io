@@ -91,6 +91,7 @@ ${\Delta}'$ : Sampling 된 triple를 $(h_{l},r_{l},t_{l})$라고 하자. $h_{l}$
 
 
 **Link Prediction**은 TransR에서 소개한 방식과 같은 방식으로 이루어진다.  
+  
 
 ---  
 
