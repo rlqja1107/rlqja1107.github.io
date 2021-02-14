@@ -1,7 +1,10 @@
 ---
 layout: compress
 ---
-
+<script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+      </script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 {% assign author = site.data.authors[page.author] | default:site.data.authors.first[1] %}
 
 {% assign color = site.color | default:'#5ff656b' %}
@@ -24,10 +27,7 @@ layout: compress
 
 {% if page.color %}{% assign color = page.color %}{% endif %}
 {% if page.image %}{% assign image = page.image %}{% endif %}
-<script type="text/x-mathjax-config">
-        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
-      </script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 <head>
   {% include head.html %}
 </head>
