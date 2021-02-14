@@ -62,9 +62,9 @@ $$h_{\perp} = M_{rh}h$$
 $$t_{\perp} = M_{rt}t$$   
 $h_{\perp},t_{\perp}$는 head와 tail를 Relation 공간에 정사영시킨 벡터다. 이를 이용하여 우리는 score function을 정의할 수 있다. score function뿐만 아니라, margin을 기반으로 한 **objective function**도 바로 소개하려고 한다.  
 * score function    
-
   
 $$f_{r}(h,t) = -\left \| h_{\perp} + r - t_{\perp} \right \|_{2}^{2}$$   
+  
 **Constraint**   
 
 $$\left \| h \right \|_{2}, \left \| t \right \|_{2}, \left \| r\right \|_{2}, \left \| h_{\perp} \right \|_{2}, \left \| t_{\perp} \right \| \leq 1$$   
