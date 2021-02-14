@@ -34,7 +34,7 @@ windonw.onload = function(){
 <h2 style="color: royalblue; font-weight: bold">해결과정</h2>  
   
 1. _includes 디렉토리에 **mathjax_support.html**를 추가  
-위에서는 Mathjax.html이라고 했지만 사실 파일명은 상관이 없다. 아래의 코드를 _includes 디렉토리에 추가시켜준다.  
+위에서는 Mathjax.html이라고 했지만 사실 파일명은 상관이 없다. 2번에서 파일명만 잘 맞춰주면 된다. 아래의 코드를 _includes 디렉토리에 추가시켜준다.  
 ##### mathjax_support.html  
 ``` math     
 <script type="text/javascript">
