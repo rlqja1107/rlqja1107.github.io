@@ -77,8 +77,7 @@ $$\mathit{h(e,a,v) = - \left \| f(eW_{a}+b_{a})-V_{av} \right \|_{L_{1}/L_{2}} +
 $$\mathit{Y(e)=\left \{ (e,\hat{a},\hat{v})\in Y \right \}}$$   
 우리는 다음 위의 새로운 Dention을 세운다. 이는 (e,a,v)를 제외한 나머지 Attribute를 의미한다. 여기서는 Y(e)가 주어졌을 때, 즉, (e,a,v)를 제외한 다른 Attribute를 통해 (e,a,v)를 예측한다는 의미로 받아들였다. 식은 다음과 같다.  
 
-
-<p align='center'>$$\mathit{P((e,a,v)\mid Y(e))= \frac{e^{z(e,a,v,Y(e))}}{\sum_{\hat{v}\in V_{a}}e^{z(e,a,\hat{v},Y(e))}}}$$</p>      
+$$\mathit{P((e,a,v)\mid Y(e))= \frac{e^{z(e,a,v,Y(e))}}{\sum_{\hat{v}\in V_{a}}e^{z(e,a,\hat{v},Y(e))}}}$$      
 
 
 $$\mathit{z(e,a,v,Y(e))\propto \sum_{(e,\hat{a},\hat{v}\in Y(e))}P((a,v)|(\hat{a},\hat{v}))(A_{a}\cdot  A_{\hat{a}})}$$       
