@@ -17,7 +17,7 @@
     {% include message.html text=post.description %}
   </header>
   <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+          MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$$'], ['\\(','\\)']] } });
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   {% for tag_slug in post.tags %}
