@@ -1,7 +1,10 @@
 ---
 layout: base
 ---
-
+<script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+      </script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 {% for post in paginator.posts %}
   {% include post.html post=post link_title=true excerpt=true %}
 {% endfor %}
