@@ -8,7 +8,10 @@ comments: true
 ---
 
 
-
+<script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+      </script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 # Inductive Representation Learning on Large Graph  
 > 본 논문을 개인의 해석 및 이해를 바탕으로 정리  
