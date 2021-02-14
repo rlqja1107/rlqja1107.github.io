@@ -49,7 +49,7 @@ Entity와 Entity끼리 relation맺을 때는 Entity의 Type이 다양하고 Type
 
 #### Model 해석  
 $$h,t\in \mathbb{R}^{k}$$  
-$h$와 $t$의 경우 같은 k차원의 Embedding 공간에 존재한다. 다만,  
+$$h$$와 $$t$$의 경우 같은 k차원의 Embedding 공간에 존재한다. 다만,  
 $$r\in \mathbb{R}^{d}$$  
 r의 relation은 Entity와 다르게 d 차원의 공간에 따로 존재한다. 우리는 Entity를 먼저 Relation의 공간으로 translation시킨 후, 다루어야 한다. Translate할 때는 **Projection Matrix**를 이용하여 이동시킨다.  
 $$M_{r}\in \mathbb{R}^{k\times d}$$  

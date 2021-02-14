@@ -117,7 +117,7 @@ Mulit-Layer Perceptron을 이용하여 정보를 취합할 수도 있었지만, 
     
 <img width = "600" src="https://user-images.githubusercontent.com/25279765/76823398-77d34780-6857-11ea-88ab-e2cfa187b226.png">    
 
-Mini Batch를 방식을 이용해서 구하는 방식이다. $B$는 node를 Representation으로 나타내고 싶은 Node들이 모여있는 **Mini Batch**다. 여기서 주의해야 할 것은 $$B^{1}$$과 $$B$$는 서로 다른 개념이다.  
+Mini Batch를 방식을 이용해서 구하는 방식이다. $$B$$는 node를 Representation으로 나타내고 싶은 Node들이 모여있는 **Mini Batch**다. 여기서 주의해야 할 것은 $$B^{1}$$과 $$B$$는 서로 다른 개념이다.  
 Line 2~7을 통해서 Mini-batch에서의 Neighbor를 먼저 Sampling한다. 개인적으로 해석하면, $B^{0}$의 경우에는 K번째 이웃의 Node들의 집합이라고 생각했다. $$B^{0}$$에서 0이 하나씩 증가할 때마다, K는 하나씩 감소한다.  
 
 Line 9~15에서 K번째 이웃의 노드들의 feature정보를 K-1번 이웃의 노드들이 Aggregate하여 갖고 있고, iteration이 한 번 더 돌면, K-1번째 이웃의 노드들은 K-2번째 이웃의 정보를 갖고 있는데, K-2번째 이웃은 K-1번째 이웃의 정보를 Aggregate하여 Represent한다.   
