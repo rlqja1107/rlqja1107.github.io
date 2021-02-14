@@ -66,17 +66,16 @@ windonw.onload = function(){
 
 ##### post.html  
 
-``` python      
-"include post.html post=page link_title=false" 
+``` math    
+"include post.html post=page link_title=false"  
+window.onload = function(){  
+    " include mathjax_support.html "   
+}   
+"include about.html"   
+  
+"include related.html post=page"     
+```   
 
-window.onload = function(){ 
-    " include mathjax_support.html "  
-}  
-
-"include about.html" 
-
-"include related.html post=page"   
-```  
 
 
 **(위의 ""를 {\% \%}형태로 전환)**  
