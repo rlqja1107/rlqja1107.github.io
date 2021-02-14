@@ -91,7 +91,7 @@ $$\mathit{P((e,a,v)\mid Y(e))= \frac{e^{z(e,a,v,Y(e))}}{\sum_{\hat{v}\in V_{a}}e
 $$\mathit{z(e,a,v,Y(e))\propto \sum_{(e,\hat{a},\hat{v}\in Y(e))}P((a,v)|(\hat{a},\hat{v}))(A_{a}\cdot  A_{\hat{a}})}$$    
     
     
-여기서 $$(A_{a}\cdot A_{\hat{a}})$$은 두 Attribute를 곱하는 것으로 relatedness를 의미한다. 여기서는 코드를 짜보면서 $A_{a}$가 무엇을 의미하는지 파악할 필요가 있다. 그리고 $$P((a,v)\mid (\hat{a},\hat{v}))$$는 $$(\hat{a},\hat{v})$$ 가 주어졌을 때, $$(a,v)$$를 구하는 확률이다. 이는 두 Attribute의 상관성을 의미한다.  
+여기서 $$(A_{a}\cdot A_{\hat{a}})$$은 두 Attribute를 곱하는 것으로 relatedness를 의미한다. 여기서는 코드를 짜보면서 $$A_{a}$$가 무엇을 의미하는지 파악할 필요가 있다. 그리고 $$P((a,v)\mid (\hat{a},\hat{v}))$$는 $$(\hat{a},\hat{v})$$ 가 주어졌을 때, $$(a,v)$$를 구하는 확률이다. 이는 두 Attribute의 상관성을 의미한다.  
   
 마지막에 최적화를 할 때는 loglikelihood를 이용한다. 근데 뒤에 regularization factor를 곱해서 정규화를 시킨다. 정규화 식은 논문 (13),(14)를 참고하면 된다.  
 ### Negative Sampling  
