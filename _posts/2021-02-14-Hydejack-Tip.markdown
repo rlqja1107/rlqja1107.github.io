@@ -68,12 +68,14 @@ windonw.onload = function(){
    
 ``` python      
 " include post.html post=page link_title=false "  
+
 window.onload = function(){  
     " include mathjax_support.html "   
 }   
 " include about.html "   
   
 " include related.html post=page "     
+
 ```   
 
     
