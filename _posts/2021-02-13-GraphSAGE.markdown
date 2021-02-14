@@ -77,20 +77,22 @@ Aggregate function은 그림으로 보면 이해하기 쉽다.
      
 **Unsupervised** 상황에서 위의 알고리즘의 마지막 output인 $z_{v}$ graph기반으로 하는 loss function을 이용하여 Training시킬 수 있다.  
 
-$$J_\mathcal{G}(\mathbf{z}_u) = - \log(\sigma(\mathbf{z}_u^\intercal \mathbf{z}_v)) - Q \cdot \mathbb{E}_{v_n \sim P_n(v)}\log(\sigma(-\mathbf{z}_u^\intercal \mathbf{z}_{v_n}))$$  
+$$J_\mathcal{G}(\mathbf{z}_u) = - \log(\sigma(\mathbf{z}_u^\intercal \mathbf{z}_v)) - Q \cdot \mathbb{E}_{v_n \sim P_n(v)}\log(\sigma(-\mathbf{z}_u^\intercal \mathbf{z}_{v_n}))$$   
+   
 위의 **Negative Sampling**은 근처에 있는 노드는 비슷하게 표현하게 하고, 멀리 있는 노드들은 다르게 표현되도록 유도시킨다.  
 
-$v$: $u$근처에 고정된 길이의 Random Walk한 Node  
-$Q$: Negative Sampling의 수  
-$z_{u}$: 이웃 노드의 Feature로부터 유도된 vector  
+$$v$$: $$u$$근처에 고정된 길이의 Random Walk한 Node  
+$$Q$$: Negative Sampling의 수  
+$$z_{u}$$: 이웃 노드의 Feature로부터 유도된 vector  
      
 ### Aggregate Function의 종류    
     
     
-- **Mean Aggregator**  
+- **Mean Aggregator**   
+  
 $$ h_v^k \gets \sigma(\mathbf{W} \cdot \text{MEAN}(\{\mathbf{h}_v^{k-1}\}  \cup \{\mathbf{h}^{k-1}_u, \forall u \in \mathcal{N}(v) \}) $$   
 
-Node $v$가 있을 때, 이웃 노드의 k-1th Representation인 $h_{u}^{k-1}$를 모두 평균으로 vector를 구한다. 중요한 것은, Node $v$와 **Concat**을 하지 않는다는 것이다.  
+Node $$v$$가 있을 때, 이웃 노드의 k-1th Representation인 $$h_{u}^{k-1}$$를 모두 평균으로 vector를 구한다. 중요한 것은, Node $$v$$와 **Concat**을 하지 않는다는 것이다.  
 Concat을 시키지 않고, 평균으로 vector를 구한 뒤 바로, Single layer에 보낸다.  
 > 의문점: 논문에서는 Mean Aggregator가 GCN에서 convolutional propagation과 유사하다고 하지만, GCN을 읽은 입장에서 어떤 부분이 유사한지 이해하지 못함..  
 
@@ -104,7 +106,8 @@ LSTM을 이용하여 Aggregate하는데 문제가 한 가지 있다. 바로 Inpu
 - **Pooling Aggregator**  
 
 $$ \text{AGGREGATE}_k^\text{pool} = \max( \{ \sigma(\mathbf{W}_\text{pool}\mathbf{h}^k_{u_i} + \mathbf{b}), \forall u_i \in \mathcal{N}(v) \}) $$  
-$h_{u}^{k}$, 각 Neighbor노드의 k-th representation을 개별적으로 Single Layer에 넣는다. Neighbor 노드의 수가 t개라고 한다면 $h_{u}^{k}$는 t개가 나올 것이다. 여기서 element-wise로 max값만을 추출한다.  
+  
+$$h_{u}^{k}$$, 각 Neighbor노드의 k-th representation을 개별적으로 Single Layer에 넣는다. Neighbor 노드의 수가 t개라고 한다면 $$h_{u}^{k}$$는 t개가 나올 것이다. 여기서 element-wise로 max값만을 추출한다.  
 Max pooling방식을 이용하면 Neighbor 노드의 다양한 Aspect를 반영시킬 수 있다. 왜냐하면 Max값들은 서로 다른 Neighbor의 Information으로부터 추출되기 때문이다.  
 Mulit-Layer Perceptron을 이용하여 정보를 취합할 수도 있었지만, 논문에서는 Single Layer를 이용한다.  
     
@@ -114,8 +117,8 @@ Mulit-Layer Perceptron을 이용하여 정보를 취합할 수도 있었지만, 
     
 <img width = "600" src="https://user-images.githubusercontent.com/25279765/76823398-77d34780-6857-11ea-88ab-e2cfa187b226.png">    
 
-Mini Batch를 방식을 이용해서 구하는 방식이다. $B$는 node를 Representation으로 나타내고 싶은 Node들이 모여있는 **Mini Batch**다. 여기서 주의해야 할 것은 $B^{1}$과 $B$는 서로 다른 개념이다.  
-Line 2~7을 통해서 Mini-batch에서의 Neighbor를 먼저 Sampling한다. 개인적으로 해석하면, $B^{0}$의 경우에는 K번째 이웃의 Node들의 집합이라고 생각했다. $B^{0}$에서 0이 하나씩 증가할 때마다, K는 하나씩 감소한다.  
+Mini Batch를 방식을 이용해서 구하는 방식이다. $B$는 node를 Representation으로 나타내고 싶은 Node들이 모여있는 **Mini Batch**다. 여기서 주의해야 할 것은 $$B^{1}$$과 $$B$$는 서로 다른 개념이다.  
+Line 2~7을 통해서 Mini-batch에서의 Neighbor를 먼저 Sampling한다. 개인적으로 해석하면, $B^{0}$의 경우에는 K번째 이웃의 Node들의 집합이라고 생각했다. $$B^{0}$$에서 0이 하나씩 증가할 때마다, K는 하나씩 감소한다.  
 
 Line 9~15에서 K번째 이웃의 노드들의 feature정보를 K-1번 이웃의 노드들이 Aggregate하여 갖고 있고, iteration이 한 번 더 돌면, K-1번째 이웃의 노드들은 K-2번째 이웃의 정보를 갖고 있는데, K-2번째 이웃은 K-1번째 이웃의 정보를 Aggregate하여 Represent한다.   
 
