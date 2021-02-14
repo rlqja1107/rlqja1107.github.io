@@ -16,6 +16,10 @@
 
     {% include message.html text=post.description %}
   </header>
+  <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   {% for tag_slug in post.tags %}
   {% unless tag.header-img %}
   {% assign tag = site.featured_tags | where: "slug", tag_slug | first %}
@@ -82,13 +86,7 @@
   <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
-    <script type="text/x-mathjax-config">
-            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
-        </script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML"
-      integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw=="
-      crossorigin="anonymous"></script>
+   
   {% else %}
   {{ post.excerpt }}
   <p class="read-more"><a class="heading" href="{{ post.url | relative_url }}" data-flip="title">Continue reading </a>
