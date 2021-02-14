@@ -79,13 +79,10 @@ $$\mathit{Y(e)=\left \{ (e,\hat{a},\hat{v})\in Y \right \}}$$
 
 $$\mathit{P((e,a,v)\mid Y(e))= \frac{e^{z(e,a,v,Y(e))}}{\sum_{\hat{v}\in V_{a}}e^{z(e,a,\hat{v},Y(e))}}}$$      
 
-
 $$\mathit{z(e,a,v,Y(e))\propto \sum_{(e,\hat{a},\hat{v}\in Y(e))}P((a,v)|(\hat{a},\hat{v}))(A_{a}\cdot  A_{\hat{a}})}$$       
 
-
-여기서 $(A_{a}\cdot A_{\hat{a}})$ 은 두 Attribute를 곱하는 것으로 relatedness를 의미한다. 여기서는 코드를 짜보면서 $A_{a}$가 무엇을 의미하는지 파악할 필요가 있다. 그리고 $P((a,v)|(\hat{a},\hat{v}))$는 $(\hat{a},\hat{v})$ 가 주어졌을 때, $(a,v)$를 구하는 확률이다. 이는 두 Attribute의 상관성을 의미한다.  
+여기서 $(A_{a}\cdot A_{\hat{a}})$은 두 Attribute를 곱하는 것으로 relatedness를 의미한다. 여기서는 코드를 짜보면서 $A_{a}$가 무엇을 의미하는지 파악할 필요가 있다. 그리고 $P((a,v)|(\hat{a},\hat{v}))$는 $(\hat{a},\hat{v})$ 가 주어졌을 때, $(a,v)$를 구하는 확률이다. 이는 두 Attribute의 상관성을 의미한다.  
  
-
 마지막에 최적화를 할 때는 loglikelihood를 이용한다. 근데 뒤에 regularization factor를 곱해서 정규화를 시킨다. 정규화 식은 논문 (13),(14)를 참고하면 된다.  
 ### Negative Sampling  
 지금까지 논문을 읽으면서 감을 잡았던 것이 모든 Edge 또는 모든 Node가 이용되는 식이 있으면, Negative Sampling으로 Time Complexity를 줄인다는 것이다. 여기서도 위의 식을 보면 모든 V를 이용하게 된다. 따라서, 여기서도 Negative Sampling이 이용된다. 다만, 궁금한 점은 다른 논문(LINE)에서는 Negative Sampling할 때 Sigmoid에 log를 씌우지만 여기서는 씌우지 않는다. 
