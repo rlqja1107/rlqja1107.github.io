@@ -60,11 +60,11 @@ TransE에서의 one-to-many relation의 한계를 **Attribute**를 이용하면 
 
 
 RTE는 Entity간의 Relation을 유지하며 graph에 임베딩하는데 목적이 있다.   
-<p align='center'>$$\mathit{P((h,r,t)|X)}$$</p>  
+<p align='center'>$$\mathit{P((h,r,t)|X)}$$</p>    
 학습 시에는 위의 식을 학습시키는 대신에, 우리는  
 <p align='center'>$$\mathit{P((h)|r,t,X)} or \mathit{P((r)|h,t,X)} or \mathit{P((t)|r,h,X)}$$</p>  
 를 학습시킨다. 여기서 TransE 또는 R를 유지시키며 다음과 같은 방법으로 학습시킨다.  
-<p align='center'>$$\mathit{P((h)|r,t,X)} = \mathit{P((h)|r,t,X) = \frac{e^{g(h,r,t)}}{\sum_{\hat{h}\in E} e^{g(\hat{h},r,t)}}}$$</p>  
+<center>$$\mathit{P((h)|r,t,X)} = \mathit{P((h)|r,t,X) = \frac{e^{g(h,r,t)}}{\sum_{\hat{h}\in E} e^{g(\hat{h},r,t)}}}$$</center>    
 여기서, $\mathit{g(h,r,t) = - \left \| h+r-t \right \|}_{L_{1}/L_{2}}+b_{1}$ 로 정의된다.   
 ### Attributional Triple Encoder(ATE)   
 ATE는 Entity와 Attribute 사이의 Relation을 유지시켜 임베딩한다. 여기서는 (e,a,v)의 triple이 존재한다고 한다면, 다음의 식을 통해 관계를 유지시킨다.  
