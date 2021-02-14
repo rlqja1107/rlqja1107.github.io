@@ -65,7 +65,7 @@ windonw.onload = function(){
 
 
 ##### post.html  
-
+  
 ``` math    
 "include post.html post=page link_title=false"  
 window.onload = function(){  
@@ -76,7 +76,7 @@ window.onload = function(){
 "include related.html post=page"     
 ```   
 
-
+  
 
 **(위의 ""를 {% %}형태로 전환)**  
 
