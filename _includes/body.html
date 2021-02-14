@@ -20,10 +20,7 @@
 <div id="_yPushState">
   <div class="fade-in">
     <main id="_main" class="content" role="main" data-color="{{ color | escape }}" data-image="{{ image | escape }}">
-      <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
-      </script>
-      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
       {{ content }}
 
       {% if site.disqus_shortname and page.layout == 'post' %}
