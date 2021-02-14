@@ -14,7 +14,6 @@ comments: true
 
 
    
-
 ## 논문 원본  
 [TransE](https://proceedings.neurips.cc/paper/2013/file/1cecc7a77928ca8133fa24680a88d2f9-Paper.pdf)  
 ## 논문 요약  
