@@ -8,8 +8,23 @@ comments: true
 ---
 
 
-<h2 style="color: royalblue; font-weight: bold">Cross-Entropy Loss</h2>   
 
+<h2 style="color: royalblue; font-weight: bold">Multi-Class, Multi-Label 정리</h2>  
+
+Multi-Class인 경우에는 각 Sample이 여러 Class 중 하나로 분류될 수 있음을 의미한다. **Sample**은 Node로 생각해도 무방하다.  
+* 예시)   
+Node 1이 사람, 동물, 곤충, 사물, 강아지 등 여러 Class 중 하나로 **분류**하는 문제  
+
+Multi-Label은 Multi-Class와는 다른 개념이다. 하나의 Sample(Node)이 여러 Label를 갖을 수 있음을 의미한다.  
+
+* 예시)  
+Multi-Label의 경우에는 위의 예시에서 Node 1이 강아지라면, (사람, 강아지)의 여러 Label를 갖을 수 있다.  
+
+
+
+<h2 style="color: royalblue; font-weight: bold">1. Cross-Entropy Loss</h2>   
+
+### Multi-Label Classification  
   
 <img width ='500' src ='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fl2fVS%2FbtqxaDzMo7G%2FU9QHVyal8u1yLXZM6W0eAk%2Fimg.png'>    
   
@@ -17,4 +32,14 @@ $$Cross-Entropy Loss = - \sum_{i}^{C} t_{i}log(s_{i})$$
   
 $$t_{i}$$: Ground-Truth(정답)   
 $$s_{i}$$: Neural Network의 마지막 층의 아웃풋인 score에서 i번째 요소.  
+score에 (0,1) 값을 맞추기 위해 sigmoid를 붙여서 사용하는 경우가 많다.   
 
+<h2 style="color: royalblue; font-weight: bold">1-2. Binary Cross-Entropy Loss</h2>  
+
+Cross-Entropy에서 C=2가 되면 그것이 Binary-Cross Entropy loss로 정의된다.  
+
+$$BCE = -\sum_{i=1}^{2}t_{i}log(s_{i})= -t_{1}log(s_{1})-(1-t_{1})log(1-s_{1})$$  
+
+(계속해서 정리 중)
+ 
+---
