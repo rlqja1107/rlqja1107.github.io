@@ -2,7 +2,7 @@
 layout: post
 title: "[논문]GraphSAGE"
 subtitle: "Unseen node를 Embedding시키는 Inductive framework"
-categories: recommendation
+categories: paper
 tags: graph
 comments: true
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: "[논문]TransR - 지식그래프"
 subtitle: "Entity Space와 Relation Space를 따로 생각"
-categories: recommendation
+categories: paper
 tags: graph
 comments: true
 
