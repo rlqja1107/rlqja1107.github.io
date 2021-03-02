@@ -132,9 +132,22 @@ $$head$$: 2
 $$head$$ 갯수만큼 $$W_{Query}(4X2)$$의 Weight Matrix가 존재한다.  
 
 
-<img width = "500" src = "https://user-images.githubusercontent.com/55014424/109599336-58aff180-7b5e-11eb-91d8-98adfe141470.png">   
+<img width = "600" src = "https://user-images.githubusercontent.com/55014424/109599336-58aff180-7b5e-11eb-91d8-98adfe141470.png">   
 
+Query와 Key를 행렬 곱을 하면, 각 단어마다의 연관성이 energy로 나타나게 된다. 예를 들어, "I"와 "you"의 연관성이 높다면 빨간선의 Matrix에서 (0,2)위치의 score가 높게 나타날 것이다.  
+softmax와 scale factor를 이용하고 key에 맞는 value를 곱하게 되면 Attention이 나타나게 될 것이다.  
 
+<img width = "600" src = "https://user-images.githubusercontent.com/55014424/109599713-015e5100-7b5f-11eb-9586-4c81c8623fcd.png">  
+
+Attention Score에 Mask Matrix를 이용하여 어떤 단어의 연관성을 무시할 것인지 나타낼 수 있다. 예를 들어, "I"의 단어를 무시하고 싶으면 (0,0), (0,1), (0,2)에 $$-\infin$$을 넣는다.  
+
+<img width = "600" src = "https://user-images.githubusercontent.com/55014424/109599855-526e4500-7b5f-11eb-9309-020decf16ff7.png">  
+
+Multi-head의 경우에는 head 갯수만큼 위의 과정을 통해 Attention score를 구하고 Concat시킨 후, Weight Matrix를 곱하여 linear transformation한다.  
+
+$$ Multi-head(Q,K,V) = Concat(head_{1}, head_{2}, ...)W^{O}$$  
+
+$$W^{O}$$는 $$d_{model} X d_{model}$$로 기존 Input의 크기와 동일하게 한다. Input 차원과 Output 차원이 동일하기 때문에, Multi-Head Attention을 중첩해도 된다.  
 
 
 
