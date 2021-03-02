@@ -48,7 +48,42 @@ I를 기준으로 다른 단어와의 연관성을 보려고 한다. I는 **Quer
 
 $$ Attention(Q,K,V) = softmax(\frac {QK^{T}} {\sqrt{d_{k}}})V$$  
 
-Query가 각 Key 중에서 어느 key의 정보가 중요한지 계산한다. $$QK^{T}$$를 통해 
+Query가 각 Key 중에서 어느 key의 정보가 중요한지 계산한다. $$QK^{T}$$를 통해 **energy**를 계산하고, scaling factor $$\sqrt{d_{k}}$$으로 나누어서 normalization을 한다.  
+Normalization을 안하게 된다면, 차원 $$d_{k}$$가 커질수록 Energy의 편차가 커지게 된다. 값이 작은 항들은 softmax 특성상 **vanishing**되기 때문에 normalization을 시켜준다.  
+
+" Multi-Head Attention"   
+
+단 하나의 Attention 함수를 이용하는 것이 아니라, query, key, value를 h번 linearly project시켜서 Multi--Head를 만든다.  
+
+$$ head_{i}=Attention(QW_{i}^{Q}, KW_{i}^{K}, VW_{i}^{V})$$  
+
+i는 head number로 1~h사이의 값을 갖는다. head가 h개 나오게 되는데, 이를 concat하고 Linear Project시킨다.  
+
+$$ MultiHead(Q,K,V) = Concat(head_{1},head_{2}, ...., head_{h})W^{O}$$  
+
+> Single head만 사용해도되는데 Multi head를 사용하는 이유  
+
+Multi-head를 사용하면, Query와 Key의 다른 Position을 반영시킬 수 있는데, 다른 Position에서는 Query와 Key가 다르게 표현될 것이다. Multi-head는 이러한 다른 Representation 정보를 반영시킬 수 있어, 정확성을 더 올릴 수 있다.  
+Head를 서로 다르게 구별시켜 서로 다른 Cocept을 학습시킬 수 있는 장점도 존재한다.  
+
+
+<h3 style="color: royalblue; font-weight: bold">기본 구조</h3>  
+
+<img width = "350" src="https://user-images.githubusercontent.com/55014424/109585049-14185c00-7b46-11eb-8087-a007528a5b38.png">  
+
+<center>왼쪽: Encoder, 오른쪽: Decoder</center>  
+
+Input으로 Sequence가 들어오면 Positional Encoding과 더해서 Sublayer의 input으로 들어온다.  
+> **Positional Encoding**: Attention을 이용할 경우, Sequence의 상대적인, 절대적인 위치 정보가 없다. 별도의 Positional Encoding을 이용하여 Sequence에 순서 정보를 담는다. 2가지 방법이 존재한다.    
+> 1. 학습이 가능한 Positional Embdedding을 이용하여 Input에 Element-wise로 더하여 위치 정보를 넣는다.  
+> 2. $$ PE_{(pos,2i)} = sin(pos/10000^{2i/d_{model}}) $$  
+>  $$ PE_{(pos,2i+1)} = cos(pos/10000^{2i/d_{model}}) $$  
+> 
+>  $$i$$: 차원
+>  $$pos$$: position(단어의 위치)  
+>  
+> 위와 같은 주기적 함수를 이용하여 위치 업로
+
 
 
 
