@@ -2,7 +2,7 @@
 layout: tag-blog
 title: Graph
 slug: graph
-category: recommendation
+category: paper
 menu: false
 order: 1
 ---
