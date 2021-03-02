@@ -149,6 +149,12 @@ $$ Multi-head(Q,K,V) = Concat(head_{1}, head_{2}, ...)W^{O}$$
 
 $$W^{O}$$는 $$d_{model} X d_{model}$$로 기존 Input의 크기와 동일하게 한다. Input 차원과 Output 차원이 동일하기 때문에, Multi-Head Attention을 중첩해도 된다.  
 
+* 참고 
+[https://github.com/ndb796/Deep-Learning-Paper-Review-and-Practice/blob/master/lecture_notes/Transformer.pdf](https://github.com/ndb796/Deep-Learning-Paper-Review-and-Practice/blob/master/lecture_notes/Transformer.pdf)  
+
+
+---
+
 
 
 
