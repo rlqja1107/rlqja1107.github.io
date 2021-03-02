@@ -105,6 +105,34 @@ $$ Feed-Forward Network(x) = max(0, xW_{1}+b_{1})W_{2}+b_{2}$$
 
 ### Decoder  
 
+Decoder는 3개의 Sublayer로 이루어진다. Encoder와는 다른 **Sublayer** 개념을 이용한다.  
+
+#### 첫 번째 Sublayer  
+
+Encoder의 Multi-head Attention과 갖지만, **Mask**가 들어간다. 간단히 말하면, Mask는 Mask Matrix에서 고려하지 않을 단어에 $$-\infin$$를 Element-wise로 곱하여 연관 비중을 0% 가깝게 만드는 것이다. 나머지는 Encoder에서의 Multi-head Attention(self-Attention)과 동일하다.  
+
+#### 두 번째 Sublayer  
+
+두 번째 Sublayer에서는 Query를 첫 번째 Sublayer의 결과값을 이용하고, Key와 Value는 Encoder의 final output을 이용하여 Multi-head Attention을 이용한다.  
+Decoder에서는 Position마다 단어를 출력하게 되는데, 현재 Position까지만을 참조하여 단어를 출력한다. 이후의 Position에 해당하는 단어는 **Mask**를 이용한다.  
+
+#### 3 번째 Sublayer  
+
+3 번째 Sublayer에서는 Encoder의 Feed-Forward와 마찬가지로 2개의 linear transformation을 포함한다.  
+
+Decoder에서 맨 마지막 결과값을 Linear Project시키고, Softmax를 통해 어떤 단어와 관련되어있는 비중이 높은지 확인한다.  
+
+<h3 style="color: royalblue; font-weight: bold">예시</h3>   
+ 
+  
+<img width = "500" src = "https://user-images.githubusercontent.com/55014424/109599008-ce678d80-7b5d-11eb-9757-a1807a5c3fe7.png">   
+
+$$d_{model}$$: 4   
+$$head$$: 2  
+$$head$$ 갯수만큼 $$W_{Query}(4X2)$$의 Weight Matrix가 존재한다.  
+
+
+<img width = "500" src = "https://user-images.githubusercontent.com/55014424/109599336-58aff180-7b5e-11eb-91d8-98adfe141470.png">   
 
 
 
