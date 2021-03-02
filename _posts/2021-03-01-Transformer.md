@@ -109,7 +109,7 @@ Decoder는 3개의 Sublayer로 이루어진다. Encoder와는 다른 **Sublayer*
 
 #### 첫 번째 Sublayer  
 
-Encoder의 Multi-head Attention과 갖지만, **Mask**가 들어간다. 간단히 말하면, Mask는 Mask Matrix에서 고려하지 않을 단어에 $$-\infin$$를 Element-wise로 곱하여 연관 비중을 0% 가깝게 만드는 것이다. 나머지는 Encoder에서의 Multi-head Attention(self-Attention)과 동일하다.  
+Encoder의 Multi-head Attention과 갖지만, **Mask**가 들어간다. 간단히 말하면, Mask는 Mask Matrix에서 고려하지 않을 단어에 $$-\infty $$를 Element-wise로 곱하여 연관 비중을 0% 가깝게 만드는 것이다. 나머지는 Encoder에서의 Multi-head Attention(self-Attention)과 동일하다.  
 
 #### 두 번째 Sublayer  
 
@@ -139,7 +139,7 @@ softmax와 scale factor를 이용하고 key에 맞는 value를 곱하게 되면 
 
 <img width = "600" src = "https://user-images.githubusercontent.com/55014424/109599713-015e5100-7b5f-11eb-9586-4c81c8623fcd.png">  
 
-Attention Score에 Mask Matrix를 이용하여 어떤 단어의 연관성을 무시할 것인지 나타낼 수 있다. 예를 들어, "I"의 단어를 무시하고 싶으면 (0,0), (0,1), (0,2)에 $$-\infin$$을 넣는다.  
+Attention Score에 Mask Matrix를 이용하여 어떤 단어의 연관성을 무시할 것인지 나타낼 수 있다. 예를 들어, "I"의 단어를 무시하고 싶으면 (0,0), (0,1), (0,2)에 $$-\infty $$을 넣는다.  
 
 <img width = "600" src = "https://user-images.githubusercontent.com/55014424/109599855-526e4500-7b5f-11eb-9309-020decf16ff7.png">  
 
