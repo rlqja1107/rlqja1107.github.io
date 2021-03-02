@@ -153,7 +153,9 @@ $$W^{O}$$는 $$d_{model} X d_{model}$$로 기존 Input의 크기와 동일하게
 [https://github.com/ndb796/Deep-Learning-Paper-Review-and-Practice/blob/master/lecture_notes/Transformer.pdf](https://github.com/ndb796/Deep-Learning-Paper-Review-and-Practice/blob/master/lecture_notes/Transformer.pdf)  
 
 
----
+---  
+
+
 
 
 
