@@ -22,4 +22,8 @@ Currently, I'm a Master's degree candidate for [Industrial & Systems Engineering
 
 I'm actively on research with my best teammates at [DSAIL](https://dsail.kaist.ac.kr/) lab.
 
-My research topic is to address the long-tailed problem across to **Graph Neural Networks**, **Recommendation**, and **Scene Understanding**.
+My research topic is to address the long-tailedness across to **Graph Neural Networks**, **Recommendation**, and **Scene Understanding**.
+
+* **Graph Neural Networks**: Class & Degree long-tailedness  
+* **Recommendation**: User & Item long-tailedness  
+* **Scene Understanding**: Predicate long-tailedness  
