@@ -8,7 +8,7 @@ profile:
   align: right
   image: me.jpg
   image_circular: false # crops the image to make it circular
-  address: >
+  address:
 
 news: true  # includes a list of news items
 latest_posts: true  # includes a list of the newest posts
