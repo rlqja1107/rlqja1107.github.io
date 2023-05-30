@@ -18,5 +18,8 @@ social: true  # includes social icons at the bottom of the page
 
 Hello, I'm Kibum Kim!  
 
-I'm a Master's degree candidate for [Industrial & Systems Engineering](https://statistics.kaist.ac.kr/) at [KAIST](https://www.kaist.ac.kr/kr/), where i am fortunate to be advised by [Prof. Chanyoung Park](https://dsail.kaist.ac.kr/professor/).
+Currently, I'm a Master's degree candidate for [Industrial & Systems Engineering](https://statistics.kaist.ac.kr/) at [KAIST](https://www.kaist.ac.kr/kr/), where i am fortunate to be advised by [Prof. Chanyoung Park](https://dsail.kaist.ac.kr/professor/).
 
+I'm actively on research with my best teammates at [DSAIL](https://dsail.kaist.ac.kr/) lab.
+
+My research topic is to address the long-tailed problem across to **Graph Neural Networks**, **Recommendation**, and **Scene Understanding**.
