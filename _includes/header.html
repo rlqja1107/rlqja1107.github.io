@@ -51,7 +51,7 @@
           {%- endif %} -->
 
           <!-- Other pages -->
-          <!-- {%- assign sorted_pages = site.pages | sort: "title" -%}
+          {%- assign sorted_pages = site.pages | sort: "title" -%}
           {%- for p in sorted_pages -%}
           {%- if p.nav and p.autogen == nil -%}
           {%- if p.dropdown %}
@@ -81,7 +81,7 @@
           </li>
           {%- endif -%}
           {%- endif -%}
-          {% endfor -%} -->
+          {% endfor -%}
           {%- if site.enable_darkmode %}
 
           <!-- Toogle theme mode -->
