@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I started a postdoctoral student in [DSAIL](https://dsail.kaist.ac.kr/) at [KAIST](https://www.kaist.ac.kr/kr/)
+I started a Ph.D student in [DSAIL](https://dsail.kaist.ac.kr/) at [KAIST](https://www.kaist.ac.kr/kr/)
