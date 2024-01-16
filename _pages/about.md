@@ -22,11 +22,11 @@ Currently, I'm a Ph.D student in [Industrial & Systems Engineering](https://stat
 
 I'm actively on research with my best teammates at [DSAIL@KAIST](https://dsail.kaist.ac.kr/).
 
-I'm interested in addressing the issue of long-tailedness in various domain such as **Graph Neural Networks**, **Recommendation**, and **Scene Understanding**.
+I'm interested in addressing the issue of long-tailedness in various domain such as **Scene Understanding**, **Recommendation**, and **Graph Neural Networks**.
 
 
-* **Graph Neural Networks**: Class & Degree long-tailedness  
-* **Recommendation**: User & Item long-tailedness  
 * **Scene Understanding**: Predicate long-tailedness  
+* **Recommendation**: User & Item long-tailedness  
+* **Graph Neural Networks**: Class & Degree long-tailedness  
 
 Feel free to contact me through *kb.kim@kaist.ac.kr* email.
