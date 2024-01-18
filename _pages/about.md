@@ -28,6 +28,6 @@ I'm interested in addressing the issue of `long-tailedness` in various domain su
 * **Recommendation**: User & Item long-tailedness  
 * **Graph Neural Networks**: Class & Degree long-tailedness  
 
-Large Language Models (LLMs) shows the exceptional generalizability in NLP. I'm currently interested in leveraging them to address the long-tailed problems.
+`Large Language Models` (LLMs) shows the exceptional generalizability in NLP. I'm currently interested in leveraging them to address the long-tailed problems.
 
 Feel free to contact me through *kb.kim@kaist.ac.kr* email.
