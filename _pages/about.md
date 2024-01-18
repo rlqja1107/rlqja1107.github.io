@@ -22,11 +22,12 @@ Currently, I'm a Ph.D student in [Industrial & Systems Engineering](https://stat
 
 I'm actively on research with my best teammates at [DSAIL@KAIST](https://dsail.kaist.ac.kr/).
 
-I'm interested in addressing the issue of long-tailedness in various domain such as **Scene Understanding**, **Recommendation**, and **Graph Neural Networks**.
-
-
+I'm interested in addressing the issue of `long-tailedness` in various domain such as **Scene Understanding**, **Recommendation**, and **Graph Neural Networks**.  
+ 
 * **Scene Understanding**: Predicate long-tailedness  
 * **Recommendation**: User & Item long-tailedness  
 * **Graph Neural Networks**: Class & Degree long-tailedness  
+
+Large Language Models (LLMs) shows the exceptional generalizability in NLP. I'm currently interested in leveraging them to address the long-tailed problems.
 
 Feel free to contact me through *kb.kim@kaist.ac.kr* email.
