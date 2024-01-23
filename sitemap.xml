@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://rlqja1107.github.io/news/announcement_2/</loc>
-<lastmod>2022-08-01T20:11:00+00:00</lastmod>
-</url>
-<url>
 <loc>https://rlqja1107.github.io/news/announcement_3/</loc>
 <lastmod>2022-12-18T11:59:00+00:00</lastmod>
 </url>
@@ -22,6 +18,10 @@
 </url>
 <url>
 <loc>https://rlqja1107.github.io/news/announcement_7/</loc>
+<lastmod>2024-01-06T19:59:00+00:00</lastmod>
+</url>
+<url>
+<loc>https://rlqja1107.github.io/news/announcement_8/</loc>
 <lastmod>2024-01-06T19:59:00+00:00</lastmod>
 </url>
 <url>
