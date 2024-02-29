@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-A paper got accepted at [WWW 2024](https://www2024.thewebconf.org/).
+A paper got accepted at [WWW 2024 (Oral)](https://www2024.thewebconf.org/).
