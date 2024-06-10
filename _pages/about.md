@@ -28,6 +28,6 @@ I'm interested in addressing the issue of `long-tailedness` in various domain su
 * **Recommendation Systems**: User & Item long-tailedness  
 * **Graph Neural Networks**: Class & Degree long-tailedness   
 
-I'm currently interested in foundational models for recommendation systems based on `Multimodal Large Language Models` (MLLMs).
+I'm currently researching in `Multimodal Large Language Models` (MLLMs) application, e.g., recommendation systems.
 
 Feel free to contact me through *kb.kim@kaist.ac.kr* email.
