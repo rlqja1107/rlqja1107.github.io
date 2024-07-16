@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://rlqja1107.github.io/news/announcement_6/</loc>
-<lastmod>2023-09-01T19:59:00+00:00</lastmod>
-</url>
-<url>
 <loc>https://rlqja1107.github.io/news/announcement_7/</loc>
 <lastmod>2024-01-06T19:59:00+00:00</lastmod>
 </url>
@@ -19,6 +15,10 @@
 <url>
 <loc>https://rlqja1107.github.io/news/announcement_10/</loc>
 <lastmod>2024-07-01T19:59:00+00:00</lastmod>
+</url>
+<url>
+<loc>https://rlqja1107.github.io/news/announcement_11/</loc>
+<lastmod>2024-07-16T19:59:00+00:00</lastmod>
 </url>
 <url>
 <loc>https://rlqja1107.github.io/blog/2022/displaying-external-posts-on-your-al-folio-blog/</loc>
