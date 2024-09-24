@@ -22,14 +22,14 @@ Currently, I'm a Ph.D student in [Industrial & Systems Engineering](https://stat
 
 I'm actively on research with my best teammates at [DSAIL@KAIST](https://dsail.kaist.ac.kr/).
 
-Nowadays, machine learning has advanced significantly and is being applied across various domains. However, despite these advancements, fundamental challenges still arise. In this regard, I focus on addressing the challenges of machine learning that occur across diverse domains. The challenges that i have been addressed are as follows:
+Nowadays, machine learning has advanced significantly and is being applied across various domains. However, despite these advancements, fundamental challenges still arise, which compromise the model's **generalizability**. In this regard, I focus on addressing the challenges of machine learning that occur across diverse domains, thereby improving the generalization power. The fundamental challenges of interest, but are not limited, are as follows:
 * **Long-tailedness**: The challenge of predicting tail classes 
 * **Data Scarcity**: The challenge of collecting large-scale datasets
 * **Adversarial Attacks**: The challenge of preserving model's robustness under attacks 
 
-Specifically, the domains addressing these challenges include `Scene Understanding`, `Recommender Systems`, and `Graph Neural Networks`.
+Since fundamental challenges arise across diverse domain, my research areas are diverse and include the following: `Scene Understanding`, `Recommender Systems`, and `Graph Neural Networks`.
 
 
-I will keep striving to tackle the fundamental challenges that occur in machine learning across various domains.
+Beyond the domains mentioned above, i'm also eager to address fundamental challenges arising in other domains.
 
-Feel free to contact me through *kb.kim@kaist.ac.kr* email.
+If you are interested or have any question, please don't hesitate to reach out to me at *kb.kim@kaist.ac.kr* email.
