@@ -22,12 +22,15 @@ Currently, I'm a Ph.D student in [Industrial & Systems Engineering](https://stat
 
 I'm actively on research with my best teammates at [DSAIL@KAIST](https://dsail.kaist.ac.kr/).
 
-I'm interested in addressing the issue of `long-tailedness` in various domain such as **Scene Understanding**, **Recommendation Systems**, and **Graph Neural Networks**.  
+Nowadays, machine learning has advanced significantly and is being applied across various domains. However, despite these advancements, fundamental challenges still arise. In this regard, I focus on addressing the challenges of machine learning that occur across diverse domains. The challenges that i have been addressed are as follows:
  
-* **Scene Understanding**: Predicate long-tailedness  
-* **Recommendation Systems**: User & Item long-tailedness  
-* **Graph Neural Networks**: Class & Degree long-tailedness   
+* **Long-tailedness**: The challenge of predicting tail classes 
+* **Data Scarcity**: The challenge of collecting large-scale datasets
+* **Adversarial Attacks**: The challenge of preserving model's robustness under attacks 
 
-I'm currently researching in `Multimodal Large Language Models` (MLLMs) application, e.g., recommendation systems.
+Specifically, the domains addressing these challenges include `Scene Understanding`, `Recommender Systems`, and `Graph Neural Networks`.
+
+
+I will keep striving to tackle the fundamental challenges that occur in machine learning across various domains.
 
 Feel free to contact me through *kb.kim@kaist.ac.kr* email.
