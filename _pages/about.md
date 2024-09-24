@@ -30,6 +30,5 @@ Nowadays, machine learning has advanced significantly and is being applied acros
 Since fundamental challenges arise across diverse domain, my research areas are diverse and include the following: `Scene Understanding`, `Recommender Systems`, and `Graph Neural Networks`.
 
 
-Beyond the domains mentioned above, i'm also eager to address fundamental challenges arising in other domains.
 
 If you are interested or have any question, please don't hesitate to reach out to me at *kb.kim@kaist.ac.kr* email.
