@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Ph.D student majoring Machine Learning
+subtitle: Ph.D candidate majoring Machine Learning
 
 profile:
   align: right
