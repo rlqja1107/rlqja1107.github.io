@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I started my research internship at [Huawei-London](https://huaweiuk.teamtailor.com/), hosted by [Principle Researcher: Zhensong Zhang](https://zhangzhensong.github.io/).
+I started my research internship at [Huawei R&D London](https://huaweiuk.teamtailor.com/), hosted by [Principal Researcher: Zhensong Zhang](https://zhangzhensong.github.io/).
