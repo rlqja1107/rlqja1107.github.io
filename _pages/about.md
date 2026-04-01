@@ -18,8 +18,8 @@ social: true  # includes social icons at the bottom of the page
 
 Hello, I'm Kibum Kim!  
 
-Currently, I'm a third-year Ph.D student in [Industrial & Systems Engineering](https://statistics.kaist.ac.kr/) at [KAIST](https://www.kaist.ac.kr/kr/), where i am fortunate to be advised by [Prof. Chanyoung Park](https://dsail.kaist.ac.kr/professor/). I'm holding a position of visiting scholar at [University of California SanDiego (UCSD)](https://ucsd.edu/), mentored by [Prof. Julian McAuley](https://cseweb.ucsd.edu/~jmcauley/).
+Currently, I'm a third-year Ph.D Candidate in [Industrial & Systems Engineering](https://statistics.kaist.ac.kr/) at [KAIST](https://www.kaist.ac.kr/kr/), where i am fortunate to be advised by [Prof. Chanyoung Park](https://dsail.kaist.ac.kr/professor/). After completing my visiting scholarship at the [University of California San Diego (UCSD)](https://ucsd.edu/) under the guidance of [Prof. Julian McAuley](https://cseweb.ucsd.edu/~jmcauley/), I am currently undertaking an internship at Huawei R&D London, hosted by [Zhensong Zhang](https://zhangzhensong.github.io/), where I work on applications of Video Multimodal Large Language Models.
 
-During my visit, I am focusing on Video Large Language Models to address their limitations in visual grounding capability. Previously, my research interests lay in scene understanding in the image and video domains, where I worked on challenges such as long-tailed distributions, data scarcity, and recommender systems.
+My current research focuses on accelerating the inference of Video Multimodal Large Language Models (MLLMs) while preserving fine-grained visual cues, as well as their downstream applications. Previously, my research interests lay in scene understanding in the image and video domains, where I worked on challenges such as long-tailed distributions, data scarcity, and recommender systems.
 
 If you are interested or have any question, please don't hesitate to reach out to me at *kb.kim@kaist.ac.kr* email.
