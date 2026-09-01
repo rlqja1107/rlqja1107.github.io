@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-A paper got <span style="color:red">Best Paper Award</span> at ECCV 2026 [Wearable AI Workshop](https://wearable-ai-workshop.github.io/).
+A paper received the <span style="color:red">Best Paper Award</span> at the ECCV 2026 [Wearable AI Workshop](https://wearable-ai-workshop.github.io/).
