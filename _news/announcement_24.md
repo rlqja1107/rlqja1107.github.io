@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Won 2nd Place in the EgoLongQA Challenge (Small Model Track) at the ECCV 2026 [Wearable AI Workshop](https://huggingface.co/spaces/facebook/wearable-ai-leaderboard).
+Won 2nd Place in the EgoLongQA Challenge at the ECCV 2026 [Wearable AI Workshop](https://huggingface.co/spaces/facebook/wearable-ai-leaderboard).
