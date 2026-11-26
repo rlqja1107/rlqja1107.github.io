@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-A paper got accepted at [ACM TORS 2026](https://dl.acm.org/journal/tors).
+A paper got accepted at [ACM TORS 2026](https://dl.acm.org/journal/tors). 
